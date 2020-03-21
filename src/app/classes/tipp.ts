@@ -1,4 +1,5 @@
 export class Tipp {
-    id: String;
-    text: String;
+  id: String;
+  title: String;
+  description: String;
 }

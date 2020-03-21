@@ -53,12 +53,16 @@
 
     </div>
 
-    <div class="hint">
-      <img src="../../assets/icon/info-icon.svg" class="hint-icon">
-      <div class="hintCaption">Tipp des Tages</div>
-      <span class="hint-title">Wash hands</span>
-      <p class="hint-description">Wet your hands, scrub everywhere (under those fingernails, too) with soap for at least 20 seconds, then rinse and dry well with a clean towel. </p>
-    </div>
+    <ng-container *ngIf="tipp$ | async as tipp">
+      <div class="hint">
+        <img src="../../assets/icon/info-icon.svg" class="hint-icon">
+        <div class="hintCaption">Tipp des Tages</div>
+        <span class="hint-title">{{ tipp.title }}</span>
+        <p class="hint-description">{{ tipp.description }}</p>
+      </div>
+    </ng-container>
+
+
 
 
   </div>
