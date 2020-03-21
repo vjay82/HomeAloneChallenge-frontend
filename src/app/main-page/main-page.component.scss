@@ -1,0 +1,63 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonsAndHintContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 47% 43%;
+  grid-column-gap: 6%;
+  grid-row-gap: 6%;
+  width: 90vw;
+  flex-grow: 1;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+  flex-grow: 0;
+}
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 2vmin;
+  grid-row-gap: 2vmin;
+  flex-grow: 1;
+}
+
+.hint {
+  background: white;
+  flex-grow: 1;
+}
+
+.hintCaption {
+  padding-top: 4%;
+  padding-bottom: 4%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hintText {
+  padding: 8px;
+}
+
+@media (orientation: landscape) {
+  .buttonsAndHintContainer {
+    flex-direction: row;
+  }
+
+  .buttonsAndHintContainer {
+    display: grid;
+    grid-template-columns: 47% 43%;
+    grid-template-rows: 100%;
+    height: 70vh;
+  }
+}
