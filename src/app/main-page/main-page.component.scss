@@ -17,6 +17,7 @@
 }
 
 h1 {
+  font-family: Roboto, sans-serif;
   font-size: 24px;
   text-align: center;
   padding-top: 6vh;
@@ -31,15 +32,77 @@ h1 {
   grid-column-gap: 2vmin;
   grid-row-gap: 2vmin;
   flex-grow: 1;
-}
 
-.buttonContainer button svg {
-  margin-bottom: 5%;
+  button {
+    background: #FFFFFF;
+    padding: 16px;
+
+    box-shadow: 0 4px 26px rgba(0, 0, 0, 0.06);
+    border: none;
+    border-radius: 6px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    height: 125px;
+
+    /* or 143% */
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    /* black light */
+    color: #3B414B;
+
+    svg {
+      margin-bottom: 5%;
+    }
+  }
 }
 
 .hint {
-  background: white;
-  flex-grow: 1;
+  background: #FFFFFF;
+  border: 2px solid #637454;
+  box-sizing: border-box;
+
+  /* card shadow */
+  box-shadow: 0 4px 26px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  padding: 10px 40px 30px 40px;
+
+  .hint-title {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    letter-spacing: 0.2px;
+
+    color: #171D33;
+  }
+
+  .hint-description {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    /* or 143% */
+    letter-spacing: 0.2px;
+
+    color: #979797;
+  }
+
+  .hint-time {
+    color: #BDBDBD;
+  }
 }
 
 .hintCaption {

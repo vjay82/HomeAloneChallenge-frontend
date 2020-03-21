@@ -6,7 +6,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MainPageComponent } from "./main-page/main-page.component";
 import { ChallengePageComponent } from "./challenge-page/challenge-page.component";
-import { ProposalPageComponent } from "./proposal-page/proposal-page.component";
 
 import { HttpClientModule } from "@angular/common/http";
 import { GreetingPageComponent } from "./greeting-page/greeting-page.component";
@@ -23,7 +22,6 @@ import { HelpPageComponent } from './help-page/help-page.component';
     AppComponent,
     MainPageComponent,
     ChallengePageComponent,
-    ProposalPageComponent,
     GreetingPageComponent,
     ChallengeCompletedPageComponent,
     ChallengeCanceledPageComponent,

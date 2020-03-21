@@ -3,7 +3,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { GreetingPageComponent } from "./greeting-page/greeting-page.component";
 import { MainPageComponent } from "./main-page/main-page.component";
 import { ChallengePageComponent } from "./challenge-page/challenge-page.component";
-import { ProposalPageComponent } from "./proposal-page/proposal-page.component";
 import {ChallengeCompletedPageComponent} from "./challenge-completed-page/challenge-completed-page.component";
 
 const routes: Routes = [
@@ -11,7 +10,6 @@ const routes: Routes = [
   { path: "main", component: MainPageComponent },
   { path: "challenge", component: ChallengePageComponent },
   { path: 'challenge/completed', component: ChallengeCompletedPageComponent },
-  { path: "proposal", component: ProposalPageComponent }
 ];
 
 @NgModule({

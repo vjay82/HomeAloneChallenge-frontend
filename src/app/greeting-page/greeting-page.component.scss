@@ -16,12 +16,6 @@
   margin-bottom: 80px;
 }
 
-.greetingPage button {
-  width: 70%;
-  margin-left: 15%;
-}
-
-
 @media (orientation: portrait) {
   .greetingPage {
     margin-top: calc((100vh - 600px) /2);
