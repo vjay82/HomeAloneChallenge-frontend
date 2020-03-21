@@ -1,11 +1,12 @@
 import { PersistenceService, StorageType } from 'angular-persistence';
 import { Challenge } from '../classes/challenge';
 import { Injectable } from '@angular/core';
+import { UserData } from '../classes/user-data';
 
 
 @Injectable()
 export class Store {
-    private userId: String;
+    private userId: UserData;
     private activeChallenge: Challenge;
 
     constructor(private persistenceService: PersistenceService) {
@@ -14,21 +15,20 @@ export class Store {
     }
 
     setChallenge(challenge: Challenge) {
-        if (!this.persistenceService.set('CHALLENGE', {type: StorageType.MEMORY})) {
+        if (!this.persistenceService.set('CHALLENGE', challenge, {type: StorageType.MEMORY})) {
             console.log("Cant set active challenge!");
-
         }
     }
 
-    getActiveChallenge() {
+    getActiveChallenge(): Challenge {
         return this.activeChallenge;
     }
 
-    getUserId() {
+    getUserId(): UserData {
         return this.userId;
     }
 
-    setUserId(userId:String) {
+    setUserId(userId:UserData) {
         if (!this.persistenceService.set('USER_ID', userId, {type: StorageType.IMMUTABLE_MEMORY})) {
             // TODO: error handling!
 

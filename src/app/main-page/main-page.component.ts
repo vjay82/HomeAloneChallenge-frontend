@@ -10,7 +10,11 @@ export class MainPageComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.checkUserId();
+    this.api.checkUserId().then(data => {
+      // Do futher requests
+    }).catch(err => {
+      console.error(err)
+    })
 
   }
 }
