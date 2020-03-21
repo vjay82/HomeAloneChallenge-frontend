@@ -19,6 +19,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { Store } from './storage/store';
 import { ApiService } from './api-service/api.service';
 import { TranslateCategoryPipe } from './pipes/translate-category/translate-category.pipe';
+import { ParseDurationPipe } from './pipes/parse-duration/parse-duration.pipe';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { TranslateCategoryPipe } from './pipes/translate-category/translate-cate
     FeedbackPageComponent,
     HelpPageComponent,
     TranslateCategoryPipe,
+    ParseDurationPipe,
   ],
   imports: [
     BrowserModule,

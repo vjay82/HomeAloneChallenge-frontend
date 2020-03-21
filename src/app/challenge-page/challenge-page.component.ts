@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, OnInit, TemplateRef} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Location} from "@angular/common";
+import {Challenge} from "../classes/challenge";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-challenge-page',
@@ -9,9 +11,14 @@ import {Location} from "@angular/common";
 })
 export class ChallengePageComponent implements OnInit, AfterViewInit {
 
-  challenge = {
-    category: 'physical',
-
+  challenge: Challenge = {
+    id: 'abcdefg',
+    title: 'Title for sport challenge',
+    description: 'Wet your hands, scrub everywhere (under those fingernails, too) with soap for at least 20 seconds, then rinse and dry well with a clean towel.',
+    category: 'sport',
+    additionalLink: '',
+    rewardPoints: 10,
+    duration: 30,
   };
 
   constructor(
