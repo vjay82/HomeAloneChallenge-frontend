@@ -6,6 +6,9 @@ import { Tipp } from '../classes/tipp';
 import { Store } from '../storage/store';
 import { UserData } from '../classes/user-data';
 import { error } from 'protractor';
+import { Observable } from 'rxjs';
+import { resolve } from 'dns';
+import { rejects } from 'assert';
 
 
 @Injectable({
@@ -19,15 +22,22 @@ export class ApiService {
 
   }
 
-  checkUserId(): void {
-    console.log(this.storage.getUserId())
-    if (this.storage.getUserId() == undefined) {
-      // Do API request toget UID
-      this.createUniqueId().subscribe((data: UserData) => {
-        this.storage.setUserId(data.userId);
-      });
+  checkUserId(): Promise<UserData> {
+    return new Promise((resolve, reject) => {
+      console.log(this.storage.getUserId())
+      if (this.storage.getUserId() == undefined) {
+        // Do API request toget UID
+        this.createUniqueId().subscribe((data: UserData) => {
+          this.storage.setUserId(data);
+          resolve(data)
+        }, (error) => {
+          reject("Canot access userId! " + error.message);
+        });
+      } else {
+        resolve(this.storage.getUserId())
+      }
       
-    }
+    })  
   }
 
   getDailyTip() {
@@ -56,3 +66,12 @@ export class ApiService {
 
 
 }
+
+
+/*
+this.api.checkUserId().then(data => {
+ // Do futher requests
+}).catch(err => {
+  console.error(err)
+})
+*/
