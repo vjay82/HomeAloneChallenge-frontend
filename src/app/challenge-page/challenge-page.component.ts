@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './challenge-page.component.html',
   styleUrls: ['./challenge-page.component.scss']
 })
-export class ChallengePageComponent implements OnInit, AfterViewInit {
+export class ChallengePageComponent {
 
   challenge: Challenge = {
     id: 'abcdefg',
@@ -22,23 +22,8 @@ export class ChallengePageComponent implements OnInit, AfterViewInit {
   };
 
   constructor(
-    private modalService: NgbModal,
     public location: Location,
   ) {
   }
 
-  ngOnInit(): void {
-  }
-
-  challengeCompleted() {
-    // open Modal
-    // this.modalService.open(ChallengeCompletedPageComponent, {centered: true});
-
-    // share to facebook
-
-  }
-
-  ngAfterViewInit(): void {
-
-  }
 }
