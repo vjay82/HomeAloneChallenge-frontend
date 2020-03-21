@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../api-service/api.service";
+import { Tipp } from "../classes/tipp";
 
 @Component({
   selector: "app-main-page",
@@ -7,19 +8,11 @@ import { ApiService } from "../api-service/api.service";
   styleUrls: ["./main-page.component.scss"]
 })
 export class MainPageComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  public tipp$: Promise<Tipp>;
 
-  ngOnInit(): void {
-    this.api.getDailyTip().then(data => {
-      // Do futher requests
-      console.log(data);
-      
-    }).catch(err => {
-      console.error(err)
-    })
-
-    /*this.api.getDailyTip().subscribe(data => {
-      console.log("tip:" + data);
-    });*/
+  constructor(private api: ApiService) {
+    this.tipp$ = this.api.getDailyTip();
   }
+
+  ngOnInit(): void {}
 }
