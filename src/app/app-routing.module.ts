@@ -11,7 +11,7 @@ import { ChallengeCanceledPageComponent } from "./challenge-canceled-page/challe
 
 const routes: Routes = [
   { path: '', component: GreetingPageComponent },
-  { path: 'main"', component: MainPageComponent },
+  { path: 'main', component: MainPageComponent },
   { path: 'challenge', component: ChallengePageComponent },
   { path: 'challenge/completed', component: ChallengeCompletedPageComponent },
   { path: 'challenge/canceled', component: ChallengeCanceledPageComponent },
