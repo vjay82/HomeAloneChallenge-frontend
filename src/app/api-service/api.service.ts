@@ -5,6 +5,7 @@ import { Challenge } from '../classes/challenge';
 import { Tipp } from '../classes/tipp';
 import { Store } from '../storage/store';
 import { UserData } from '../classes/user-data';
+import { error } from 'protractor';
 
 
 @Injectable({
@@ -12,47 +13,46 @@ import { UserData } from '../classes/user-data';
 })
 export class ApiService {
 
-  apiURL: string = "http://localhost/api/v1"
+  apiURL: string = "https://home-alone-challenge.herokuapp.com/api/v1"
 
   constructor(private httpClient: HttpClient, private storage: Store) { 
 
   }
 
-  checkAndGetUserId() {
-    let userId = this.storage.getUserId();
-    if (userId == undefined) {
+  checkUserId(): void {
+    console.log(this.storage.getUserId())
+    if (this.storage.getUserId() == undefined) {
       // Do API request toget UID
-
-    } else {
-      return userId;
+      this.createUniqueId().subscribe((data: UserData) => {
+        this.storage.setUserId(data.userId);
+      });
+      
     }
   }
 
   getDailyTip() {
-    return this.httpClient.get<Tipp>(`${this.apiURL}/tip/daily`);
+    return this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`);
   }
 
   createUniqueId() {
-    return this.httpClient.get<UserData>(`${this.apiURL}/user-id`)
+    return this.httpClient.post<UserData>(`${this.apiURL}/users`, null);
   }
 
-  fetchAllChallenges(userId: String) {    
-    return this.httpClient.get<Challenge[]>(`${this.apiURL}/users/${userId}/challenges`);
+  fetchAllChallenges() {    
+    return this.httpClient.get<Challenge[]>(`${this.apiURL}/users/${this.storage.getUserId()}/challenges`);
   }
 
-  createNewChallenge(userId: String, challenge: Challenge) {
-    return this.httpClient.post(`${this.apiURL}/users/${userId}/challenges`, challenge);
+  createNewChallenge(challenge: Challenge) {
+    return this.httpClient.post(`${this.apiURL}/users/${this.storage.getUserId()}/challenges`, challenge);
   }
 
-  getChallenge(userId: String, challengeId: String) {
-    return this.httpClient.get<Challenge>(`${this.apiURL}/users/${userId}/challenges/${challengeId}`)
+  getChallenge(challengeId: String) {
+    return this.httpClient.get<Challenge>(`${this.apiURL}/users/${this.storage.getUserId()}/challenges/${challengeId}`)
   }
 
-  getRandomChallenge(userId: String) {
-    return this.httpClient.get<Challenge>(`${this.apiURL}/users/${userId}/challenges/`)
-  }
-
-  
+  getRandomChallenge() {
+    return this.httpClient.get<Challenge>(`${this.apiURL}/users/${this.storage.getUserId()}/challenges/`)
+  } 
 
 
 }

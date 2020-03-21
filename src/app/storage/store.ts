@@ -1,6 +1,9 @@
 import { PersistenceService, StorageType } from 'angular-persistence';
 import { Challenge } from '../classes/challenge';
+import { Injectable } from '@angular/core';
 
+
+@Injectable()
 export class Store {
     private userId: String;
     private activeChallenge: Challenge;

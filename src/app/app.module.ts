@@ -16,6 +16,9 @@ import { SelectChallengePageComponent } from './select-challenge-page/select-cha
 import { CreateChallengePageComponent } from './create-challenge-page/create-challenge-page.component';
 import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { Store } from './storage/store';
+import { ApiService } from './api-service/api.service';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
     HttpClientModule,
     PersistenceModule
   ],
-  providers: [],
+  providers: [Store, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
