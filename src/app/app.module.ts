@@ -8,10 +8,9 @@ import { MainPageComponent } from "./main-page/main-page.component";
 import { ChallengePageComponent } from "./challenge-page/challenge-page.component";
 import { ProposalPageComponent } from "./proposal-page/proposal-page.component";
 import { ApiService } from "./api-service/api.service";
-import { HttpClientModule } from '@angular/common/http';
-import { GreetingPageComponent } from './greeting-page/greeting-page.component';
-import { PersistenceModule } from 'angular-persistence';
-
+import { HttpClientModule } from "@angular/common/http";
+import { GreetingPageComponent } from "./greeting-page/greeting-page.component";
+import { PersistenceModule } from "angular-persistence";
 
 @NgModule({
   declarations: [
@@ -19,14 +18,14 @@ import { PersistenceModule } from 'angular-persistence';
     MainPageComponent,
     ChallengePageComponent,
     ProposalPageComponent,
-    GreetingPageComponent,
+    GreetingPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    PersistenceModule,
+    PersistenceModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
