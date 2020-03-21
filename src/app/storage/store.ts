@@ -1,5 +1,5 @@
 import { PersistenceService, StorageType } from 'angular-persistence';
-import { Challenge } from '../api-service/challenge';
+import { Challenge } from '../classes/challenge';
 
 export class Store {
     private userId: String;

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {ApiService} from "./api-service/api.service";
-import { Challenge } from './api-service/challenge';
-import { Location } from '@angular/common';
+import { Challenge } from './classes/challenge';
 
 @Component({
   selector: 'app-root',
