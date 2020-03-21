@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$color-background: #EFE7CE;
+$color-green: #93A583;
+$color-green-dark: #637454;
+$color-blue: #A2D6DA;
+$color-yellow: #E2B90F;
+
+
+.page {
+  background: $color-background;
+  min-height: 100vh;
+  padding-top: 15px;
+
+  h1.page-headline {
+    font-family: Roboto, Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+
+    text-align: center;
+
+    color: #333333;
+  }
+
+  .back-btn {
+    height: 28px;
+    padding: 6px;
+
+    position: absolute;
+    left: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+

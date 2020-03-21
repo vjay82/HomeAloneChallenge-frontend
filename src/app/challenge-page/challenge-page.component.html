@@ -1,27 +1,9 @@
-<p>challenge-page works!</p>
+<div class="page">
+  <img class="back-btn" src="../../assets/icon/vector.svg" (click)="this.location.back()">
+  <h1 class="page-headline">Sucess page</h1>
 
-<button type="button" class="btn btn-success mr-2" (click)="challengeCompleted(challengeCompletedModalContentTemplate)">
-  Challenge completed
-</button>
-
-<!-- Template for challenge completed modal -->
-<ng-template #challengeCompletedModalContentTemplate let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Challenge completed</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Congratulations! You completed another challenge. Feeling better yet?</p>
-    <p>Share your success with your friends.</p>
-    <a class="twitter-share-button"
-       target="_self"
-       href="https://twitter.com/intent/tweet?text=Hello%20world">
-      Tweet</a>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-  </div>
-</ng-template>
+  <button type="button" class="btn btn-success mr-2" (click)="challengeCompleted()">
+    Challenge completed
+  </button>
+</div>
 

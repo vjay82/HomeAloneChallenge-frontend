@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title">Challenge completed</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>Congratulations! You completed another challenge. Feeling better yet?</p>
+  <p>Want to share your success with your friends?</p>
+
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+     data-size="large"
+     data-text="Hey look what challenge I completed. You can do it too! #WirVsVirusHack"
+     data-show-count="false"
+  >
+    Tweet
+  </a>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+</div>

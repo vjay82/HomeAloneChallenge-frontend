@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ApiService} from "./api-service/api.service";
 import { Challenge } from './api-service/challenge';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,6 @@ export class AppComponent {
   ) {
     this.apiService.getRandomChallenge().subscribe((data: Challenge) => console.log(data));
   }
+
 
 }
