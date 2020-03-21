@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(
     private apiService: ApiService,
   ) {
-    this.apiService.getRandomChallenge().subscribe((data: Challenge) => console.log(data));
+    this.apiService.getRandomChallenge("test").subscribe((data: Challenge) => console.log(data));
   }
 
 
