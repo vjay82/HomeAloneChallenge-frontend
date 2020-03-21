@@ -16,13 +16,14 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   providedIn: "root"
 })
 export class ApiService {
-  apiURL: string = "/assets/demo-backend/api/v1";
+  //apiURL: string = "/assets/demo-backend/api/v1";
 
   apiURL: string = "https://home-alone-challenge.herokuapp.com/api/v1"
   apiURLDemo: string = "assets/demo-backend/api/v1"
-  isDemo: boolean = true;
+  isDemo: boolean = false;
 
   constructor(private httpClient: HttpClient, private storage: Store) { 
+    this.isDemo = storage.isDemo()
 
   }
 
