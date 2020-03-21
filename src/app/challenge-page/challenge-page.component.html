@@ -1,9 +1,20 @@
 <div class="page">
   <img class="back-btn" src="../../assets/icon/vector.svg" (click)="this.location.back()">
-  <h1 class="page-headline">Sucess page</h1>
+  <h1 class="page-headline">{{ challenge.category }}</h1>
 
-  <button type="button" class="btn btn-success mr-2" (click)="challengeCompleted()">
-    Challenge completed
-  </button>
+  <img class="category-icon" src="../../assets/icon/category-{{ challenge.category }}-icon.svg">
+
+  <span class="remaining-time">23 h : 45 min : 58 sec</span>
+
+  <div class="challenge">
+    <span class="challenge-title">Title for sport challenge</span>
+    <p class="challenge-description">Description: Wet your hands, scrub everywhere (under those fingernails, too) with soap for at least 20 seconds, then rinse and dry well with a clean towel.</p>
+
+    <span class="challenge-category">Physisch</span>
+    <span class="challenge-time">7 min</span>
+  </div>
+
+  <button type="button" class="btn mr-2 big-btn challenge-completed-btn" routerLink="/challenge/completed">Fertig</button>
+  <button type="button" class="btn mr-2 big-btn challenge-cancel-btn" routerLink="/challenge/completed">Aufgeben</button>
 </div>
 

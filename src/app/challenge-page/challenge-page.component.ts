@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, OnInit, TemplateRef} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ChallengeCompletedModalComponent} from "./challenge-completed-modal/challenge-completed-modal.component";
+import {ChallengeCompletedPageComponent} from "../challenge-completed-page/challenge-completed-page.component";
 import {Location} from "@angular/common";
+import {Challenge} from "../api-service/challenge";
 
 @Component({
   selector: 'app-challenge-page',
@@ -9,6 +10,11 @@ import {Location} from "@angular/common";
   styleUrls: ['./challenge-page.component.scss']
 })
 export class ChallengePageComponent implements OnInit, AfterViewInit {
+
+  challenge = {
+    category: 'Physisch',
+
+  };
 
   constructor(
     private modalService: NgbModal,
@@ -21,7 +27,7 @@ export class ChallengePageComponent implements OnInit, AfterViewInit {
 
   challengeCompleted() {
     // open Modal
-    this.modalService.open(ChallengeCompletedModalComponent, {centered: true});
+    // this.modalService.open(ChallengeCompletedPageComponent, {centered: true});
 
     // share to facebook
 

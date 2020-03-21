@@ -1,0 +1,89 @@
+.challenge {
+  display: block;
+  width: 85vw;
+  margin: 30px auto 30px auto !important;
+  padding: 30px 40px;
+
+  background: #FFFFFF;
+
+
+  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+
+  .challenge-title {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+
+    letter-spacing: 0.2px;
+
+    color: #171D33;
+  }
+
+  .challenge-description {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    /* or 143% */
+    letter-spacing: 0.2px;
+
+    color: #979797;
+  }
+
+  .challenge-category {
+    background: rgba(37,206,209, 0.1);
+    border-radius: 4px;
+    padding: 5px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    letter-spacing: -0.24px;
+
+    color: #25CED1;
+  }
+
+  .challenge-time {
+    color: #BDBDBD;
+    margin-left: 10px;
+  }
+}
+
+.category-icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.remaining-time {
+  display: block;
+  width: 100vw;
+  text-align: center;
+  margin: 30px auto;
+
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+
+  letter-spacing: 0.2px;
+}
+
+.challenge-cancel-btn {
+  background-color: #DE3636;
+}
+
+.challenge-completed-btn {
+  background-color: #637454;
+}

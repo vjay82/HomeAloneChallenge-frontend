@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
 $color-background: #EFE7CE;
 $color-green: #93A583;
 $color-green-dark: #637454;
 $color-blue: #A2D6DA;
 $color-yellow: #E2B90F;
-
 
 .page {
   background: $color-background;
@@ -35,6 +34,14 @@ $color-yellow: #E2B90F;
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .big-btn {
+    display: block;
+    width: 70vw;
+    margin: 10px auto 0 auto !important;
+    border-radius: 7px;
+    color: #FFF;
   }
 }
 

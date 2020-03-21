@@ -11,7 +11,7 @@ import { ApiService } from "./api-service/api.service";
 import { HttpClientModule } from '@angular/common/http';
 import { GreetingPageComponent } from './greeting-page/greeting-page.component';
 import { PersistenceModule } from 'angular-persistence';
-import { ChallengeCompletedModalComponent } from './challenge-page/challenge-completed-modal/challenge-completed-modal.component';
+import { ChallengeCompletedPageComponent } from './challenge-completed-page/challenge-completed-page.component';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { ChallengeCompletedModalComponent } from './challenge-page/challenge-com
     ChallengePageComponent,
     ProposalPageComponent,
     GreetingPageComponent,
-    ChallengeCompletedModalComponent,
+    ChallengeCompletedPageComponent,
   ],
   imports: [
     BrowserModule,
