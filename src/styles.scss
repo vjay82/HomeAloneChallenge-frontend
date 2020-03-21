@@ -6,15 +6,19 @@ $color-green: #93A583;
 $color-green-dark: #637454;
 $color-blue: #A2D6DA;
 $color-yellow: #E2B90F;
+$color-red: #DE3636;
+
+* {
+  font-family: Roboto, Arial, sans-serif;
+  font-style: normal;
+}
 
 .page {
   background: $color-background;
   min-height: 100vh;
-  padding-top: 15px;
+  padding-top: 25px;
 
   h1.page-headline {
-    font-family: Roboto, Arial, sans-serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 28px;
@@ -52,11 +56,11 @@ $color-yellow: #E2B90F;
   }
 
   .btn-red {
-    background-color: #DE3636;
+    background-color: $color-red;
   }
 
   .btn-green {
-    background-color: #637454;
+    background-color: $color-green-dark;
   }
 
 }
