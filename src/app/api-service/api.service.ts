@@ -13,7 +13,7 @@ import { error } from 'protractor';
 })
 export class ApiService {
 
-  apiURL: string = "http://localhost/api/v1"
+  apiURL: string = "https://home-alone-challenge.herokuapp.com/api/v1"
 
   constructor(private httpClient: HttpClient, private storage: Store) { 
 
@@ -31,11 +31,11 @@ export class ApiService {
   }
 
   getDailyTip() {
-    return this.httpClient.get<Tipp>(`${this.apiURL}/tip/daily`);
+    return this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`);
   }
 
   createUniqueId() {
-    return this.httpClient.get<UserData>(`${this.apiURL}/user-id`)
+    return this.httpClient.post<UserData>(`${this.apiURL}/users`, null);
   }
 
   fetchAllChallenges() {    
