@@ -18,7 +18,7 @@ export class ChallengePageComponent implements OnInit, AfterViewInit {
     category: 'sport',
     additionalLink: '',
     rewardPoints: 10,
-    duration: 30,
+    duration: 666,
   };
 
   constructor(
