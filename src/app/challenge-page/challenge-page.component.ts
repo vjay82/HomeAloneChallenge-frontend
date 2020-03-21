@@ -12,7 +12,7 @@ export class ChallengePageComponent implements OnInit, AfterViewInit {
 
   constructor(
     private modalService: NgbModal,
-    private location: Location
+    public location: Location,
   ) {
   }
 
