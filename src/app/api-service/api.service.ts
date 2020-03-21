@@ -13,9 +13,10 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ApiService {
+  apiURL: string = "/assets/demo-backend/api/v1";
 
   apiURL: string = "https://home-alone-challenge.herokuapp.com/api/v1"
   apiURLDemo: string = "assets/demo-backend/api/v1"
@@ -42,7 +43,7 @@ export class ApiService {
           reject("Canot access userId! " + error.message);
         });
       } else {
-        resolve(this.storage.getUserId())
+        resolve(this.storage.getUserId());
       }
       
     });
@@ -78,25 +79,33 @@ export class ApiService {
     });
   }
 
-  fetchAllChallenges() {    
-    return this.httpClient.get<Challenge[]>(`${this.apiURL}/users/${this.storage.getUserId()}/challenges`);
+  fetchAllChallenges() {
+    return this.httpClient.get<Challenge[]>(
+      `${this.apiURL}/users/${this.storage.getUserId()}/challenges`
+    );
   }
 
   createNewChallenge(challenge: Challenge) {
-    return this.httpClient.post(`${this.apiURL}/users/${this.storage.getUserId()}/challenges`, challenge);
+    return this.httpClient.post(
+      `${this.apiURL}/users/${this.storage.getUserId()}/challenges`,
+      challenge
+    );
   }
 
   getChallenge(challengeId: String) {
-    return this.httpClient.get<Challenge>(`${this.apiURL}/users/${this.storage.getUserId()}/challenges/${challengeId}`)
+    return this.httpClient.get<Challenge>(
+      `${
+        this.apiURL
+      }/users/${this.storage.getUserId()}/challenges/${challengeId}`
+    );
   }
 
   getRandomChallenge() {
-    return this.httpClient.get<Challenge>(`${this.apiURL}/users/${this.storage.getUserId()}/challenges/`)
-  } 
-
-
+    return this.httpClient.get<Challenge>(
+      `${this.apiURL}/users/${this.storage.getUserId()}/challenges/`
+    );
+  }
 }
-
 
 /*
 this.api.checkUserId().then(data => {
