@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ApiService} from "./api-service/api.service";
+import { Challenge } from './api-service/challenge';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   constructor(
     private apiService: ApiService,
   ) {
-    this.apiService.getDailyChallenge();
+    this.apiService.getRandomChallenge().subscribe((data: Challenge) => console.log(data));
   }
 
 }
