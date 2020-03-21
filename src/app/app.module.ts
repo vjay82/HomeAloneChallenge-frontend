@@ -10,7 +10,7 @@ import { ProposalPageComponent } from "./proposal-page/proposal-page.component";
 import { ApiService } from "./api-service/api.service";
 import { HttpClientModule } from '@angular/common/http';
 import { GreetingPageComponent } from './greeting-page/greeting-page.component';
-import { PersistenceService } from 'angular-persistence';
+import { PersistenceModule } from 'angular-persistence';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { PersistenceService } from 'angular-persistence';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    PersistenceService,
+    PersistenceModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
