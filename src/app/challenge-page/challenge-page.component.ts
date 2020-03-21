@@ -1,8 +1,6 @@
 import {AfterViewInit, Component, OnInit, TemplateRef} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ChallengeCompletedPageComponent} from "../challenge-completed-page/challenge-completed-page.component";
 import {Location} from "@angular/common";
-import {Challenge} from "../api-service/challenge";
 
 @Component({
   selector: 'app-challenge-page',
