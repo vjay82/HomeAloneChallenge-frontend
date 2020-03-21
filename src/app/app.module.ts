@@ -9,6 +9,7 @@ import { ChallengePageComponent } from "./challenge-page/challenge-page.componen
 import { ProposalPageComponent } from "./proposal-page/proposal-page.component";
 import { ApiService } from "./api-service/api.service";
 import { HttpClientModule } from '@angular/common/http'; 
+import { PersistenceModule } from 'angular-persistence';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    PersistenceModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
