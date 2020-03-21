@@ -18,6 +18,7 @@ import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { Store } from './storage/store';
 import { ApiService } from './api-service/api.service';
+import { TranslateCategoryPipe } from './pipes/translate-category/translate-category.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ApiService } from './api-service/api.service';
     SelectChallengePageComponent,
     CreateChallengePageComponent,
     FeedbackPageComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    TranslateCategoryPipe,
   ],
   imports: [
     BrowserModule,
