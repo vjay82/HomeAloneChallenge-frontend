@@ -8,10 +8,22 @@ import { UserData } from '../classes/user-data';
 export class Store {
     private userId: UserData;
     private activeChallenge: Challenge;
+    private isDemoVersion: boolean = false;
 
     constructor(private persistenceService: PersistenceService) {
         this.userId = this.persistenceService.get('USER_ID', StorageType.IMMUTABLE_MEMORY);
         this.activeChallenge = this.persistenceService.get('CHALLENGE', StorageType.MEMORY);
+
+        var urlParam = window.location.href.split("#")
+        if (urlParam[urlParam.length - 1].toLowerCase() == "demo") {
+            this.isDemoVersion = true;
+            console.warn("Starting demo version!")
+        }
+
+    }
+
+    isDemo() {
+        return this.isDemoVersion;
     }
 
     setChallenge(challenge: Challenge) {
