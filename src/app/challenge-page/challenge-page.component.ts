@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-challenge-page',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChallengePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal,
+  ) { }
 
   ngOnInit(): void {
   }
 
+  challengeCompleted(content: TemplateRef<any>) {
+    // open Modal
+    this.modalService.open(content, { centered: true });
+
+    // share to facebook
+
+  }
 }
