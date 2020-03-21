@@ -25,18 +25,24 @@ export class ApiService {
     this.isDemo = store.isDemoVersion();
   }
 
-  getURL() {
+  private getURL() {
     return this.isDemo ? this.apiURLDemo : this.apiURL;
   }
 
-  checkUserId(): Promise<UserData> {
+  getOrCreateUserData(): Promise<UserData> {
     return new Promise((resolve, reject) => {
-      //console.log(this.store.getUserId())
-      if (this.store.getUserId() == undefined) {
+      // if demo mode, just return a default value
+      if (this.isDemo) {
+        let userData = new UserData();
+        userData.userId = "demo";
+        resolve(userData);
+      }
+
+      if (this.store.getUserData() == undefined) {
         // Do API request toget UID
         this.createUniqueId().then(
           (data: UserData) => {
-            this.store.setUserId(data);
+            this.store.setUserData(data);
             resolve(data);
           },
           error => {
@@ -44,7 +50,7 @@ export class ApiService {
           }
         );
       } else {
-        resolve(this.store.getUserId());
+        resolve(this.store.getUserData());
       }
     });
   }
@@ -81,26 +87,28 @@ export class ApiService {
 
   fetchAllChallenges() {
     return this.httpClient.get<Challenge[]>(
-      `${this.apiURL}/users/${this.store.getUserId()}/challenges`
+      `${this.apiURL}/users/${this.store.getUserData()}/challenges`
     );
   }
 
   createNewChallenge(challenge: Challenge) {
     return this.httpClient.post(
-      `${this.apiURL}/users/${this.store.getUserId()}/challenges`,
+      `${this.apiURL}/users/${this.store.getUserData()}/challenges`,
       challenge
     );
   }
 
   getChallenge(challengeId: String) {
     return this.httpClient.get<Challenge>(
-      `${this.apiURL}/users/${this.store.getUserId()}/challenges/${challengeId}`
+      `${
+        this.apiURL
+      }/users/${this.store.getUserData()}/challenges/${challengeId}`
     );
   }
 
   getRandomChallenge() {
     return this.httpClient.get<Challenge>(
-      `${this.apiURL}/users/${this.store.getUserId()}/challenges/`
+      `${this.apiURL}/users/${this.store.getUserData()}/challenges/`
     );
   }
 }

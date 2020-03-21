@@ -5,13 +5,13 @@ import { UserData } from "../classes/user-data";
 
 @Injectable()
 export class Store {
-  private userId: UserData;
+  private userData: UserData;
   private activeChallenge: Challenge;
   private demoVersion: boolean = false;
 
   constructor(private persistenceService: PersistenceService) {
-    this.userId = this.persistenceService.get(
-      "USER_ID",
+    this.userData = this.persistenceService.get(
+      "USER_DATA",
       StorageType.IMMUTABLE_MEMORY
     );
     this.activeChallenge = this.persistenceService.get(
@@ -52,14 +52,14 @@ export class Store {
     return this.activeChallenge;
   }
 
-  getUserId(): UserData {
-    return this.userId;
+  getUserData(): UserData {
+    return this.userData;
   }
 
-  setUserId(userId: UserData) {
-    this.userId = userId;
+  setUserData(userData: UserData) {
+    this.userData = userData;
     if (
-      !this.persistenceService.set("USER_ID", userId, {
+      !this.persistenceService.set("USER_DATA", userData, {
         type: StorageType.IMMUTABLE_MEMORY
       })
     ) {
