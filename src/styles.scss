@@ -19,6 +19,8 @@ $color-yellow: #E2B90F;
     font-size: 22px;
     line-height: 28px;
 
+    margin-bottom: 25px;
+
     text-align: center;
 
     color: #333333;
@@ -36,6 +38,11 @@ $color-yellow: #E2B90F;
     }
   }
 
+  .category-icon {
+    display: block;
+    margin: 0 auto;
+  }
+
   .big-btn {
     display: block;
     width: 70vw;
@@ -43,5 +50,14 @@ $color-yellow: #E2B90F;
     border-radius: 7px;
     color: #FFF;
   }
+
+  .btn-red {
+    background-color: #DE3636;
+  }
+
+  .btn-green {
+    background-color: #637454;
+  }
+
 }
 
