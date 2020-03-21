@@ -1,11 +1,10 @@
 
 export class Challenge {
-    id: String;
-    title: String;
-    desciripion: String;
-    category: number;
+    id: string;
+    title: string;
+    description: string;
+    category: string;
     duration: number;
-    revardPoints: number;
-    imageURL: String;
-    additionalLink: String;
+    rewardPoints: number;
+    additionalLink: string;
 }
