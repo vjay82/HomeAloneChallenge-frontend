@@ -10,7 +10,7 @@ import {Location} from "@angular/common";
 export class ChallengePageComponent implements OnInit, AfterViewInit {
 
   challenge = {
-    category: 'Physisch',
+    category: 'physical',
 
   };
 
