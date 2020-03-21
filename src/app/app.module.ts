@@ -9,7 +9,6 @@ import { ChallengePageComponent } from "./challenge-page/challenge-page.componen
 import { ProposalPageComponent } from "./proposal-page/proposal-page.component";
 import { ApiService } from "./api-service/api.service";
 import { HttpClientModule } from '@angular/common/http';
-import { GreetingPageComponent } from './greeting-page/greeting-page.component'; 
 
 @NgModule({
   declarations: [
@@ -17,13 +16,14 @@ import { GreetingPageComponent } from './greeting-page/greeting-page.component';
     MainPageComponent,
     ChallengePageComponent,
     ProposalPageComponent,
-    GreetingPageComponent
+    GreetingPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    PersistenceModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
