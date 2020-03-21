@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ApiService } from '../api-service/api.service';
 
 @Component({
   selector: "app-main-page",
@@ -6,7 +7,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./main-page.component.scss"]
 })
 export class MainPageComponent implements OnInit {
-  constructor() {}
+  constructor(private api: ApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.api.checkUserId();
+
+  }
 }
