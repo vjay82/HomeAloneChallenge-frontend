@@ -10,8 +10,9 @@ export class MainPageComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.api.checkUserId().then(data => {
+    this.api.getDailyTip().then(data => {
       // Do futher requests
+      console.log(data);
       
     }).catch(err => {
       console.error(err)

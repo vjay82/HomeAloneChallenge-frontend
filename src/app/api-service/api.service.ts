@@ -9,6 +9,7 @@ import { error } from 'protractor';
 import { Observable } from 'rxjs';
 import { resolve } from 'dns';
 import { rejects } from 'assert';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Injectable({
@@ -17,17 +18,24 @@ import { rejects } from 'assert';
 export class ApiService {
 
   apiURL: string = "https://home-alone-challenge.herokuapp.com/api/v1"
+  apiURLDemo: string = "assets/demo-backend/api/v1"
+  isDemo: boolean = true;
 
   constructor(private httpClient: HttpClient, private storage: Store) { 
 
   }
+
+  getURL() {
+    return this.isDemo ? this.apiURLDemo : this.apiURL;
+  }
+
 
   checkUserId(): Promise<UserData> {
     return new Promise((resolve, reject) => {
       //console.log(this.storage.getUserId())
       if (this.storage.getUserId() == undefined) {
         // Do API request toget UID
-        this.createUniqueId().subscribe((data: UserData) => {
+        this.createUniqueId().then((data: UserData) => {
           this.storage.setUserId(data);
           resolve(data)
         }, (error) => {
@@ -44,7 +52,7 @@ export class ApiService {
     //return this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`);
 
     return new Promise((resolve, reject) => {
-      this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`).subscribe((data: Tipp) => {
+      this.httpClient.get<Tipp>(`${this.getURL()}/dailytips`).subscribe((data: Tipp) => {
         resolve(data)
 
       }, (error) => {
