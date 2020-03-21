@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Challenge } from './challenge';
-import { Tipp } from './tipp';
+import { Challenge } from '../classes/challenge';
+import { Tipp } from '../classes/tipp';
 
 @Injectable({
   providedIn: 'root'
