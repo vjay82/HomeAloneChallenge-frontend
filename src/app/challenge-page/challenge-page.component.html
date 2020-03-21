@@ -2,7 +2,7 @@
   <img class="back-btn" src="../../assets/icon/vector.svg" (click)="this.location.back()">
   <h1 class="page-headline">{{ challenge.category }}</h1>
 
-  <img class="category-icon" src="../../assets/icon/category-{{ challenge.category }}-icon.svg">
+  <img class="category-icon" src="../../assets/category/{{ challenge.category }}-icon.svg">
 
   <span class="remaining-time">23 h : 45 min : 58 sec</span>
 
@@ -15,6 +15,6 @@
   </div>
 
   <button type="button" class="btn mr-2 big-btn btn-green" routerLink="/challenge/completed">Fertig</button>
-  <button type="button" class="btn mr-2 big-btn btn-red" routerLink="/challenge/completed">Aufgeben</button>
+  <button type="button" class="btn mr-2 big-btn btn-red" routerLink="/challenge/canceled">Aufgeben</button>
 </div>
 
