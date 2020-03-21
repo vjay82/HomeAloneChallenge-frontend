@@ -24,7 +24,7 @@ export class ApiService {
 
   checkUserId(): Promise<UserData> {
     return new Promise((resolve, reject) => {
-      console.log(this.storage.getUserId())
+      //console.log(this.storage.getUserId())
       if (this.storage.getUserId() == undefined) {
         // Do API request toget UID
         this.createUniqueId().subscribe((data: UserData) => {
@@ -37,15 +37,37 @@ export class ApiService {
         resolve(this.storage.getUserId())
       }
       
-    })  
+    });
   }
 
-  getDailyTip() {
-    return this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`);
+  getDailyTip(): Promise<Tipp> {
+    //return this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`);
+
+    return new Promise((resolve, reject) => {
+      this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`).subscribe((data: Tipp) => {
+        resolve(data)
+
+      }, (error) => {
+        reject("Error! " + error.message);
+
+      })
+
+    });
   }
 
   createUniqueId() {
-    return this.httpClient.post<UserData>(`${this.apiURL}/users`, null);
+    //return this.httpClient.post<UserData>(`${this.apiURL}/users`, null);
+
+    return new Promise((resolve, reject) => {
+      this.httpClient.get<Tipp>(`${this.apiURL}/dailytips`).subscribe((data: Tipp) => {
+        resolve(data)
+
+      }, (error) => {
+        reject("Error! " + error.message);
+        
+      })
+
+    });
   }
 
   fetchAllChallenges() {    

@@ -12,6 +12,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.api.checkUserId().then(data => {
       // Do futher requests
+      
     }).catch(err => {
       console.error(err)
     })
