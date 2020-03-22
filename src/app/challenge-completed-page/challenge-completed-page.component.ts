@@ -16,9 +16,6 @@ export class ChallengeCompletedPageComponent implements OnInit {
   ngOnInit(): void {
     this.title = this.store.getActiveChallenge().title;
 
-    console.log(this.title);
-
-
     this.store.setActiveChallenge(null);
     this.store.setActiveChallengeTimer(null);
   }
