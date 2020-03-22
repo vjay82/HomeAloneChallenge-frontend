@@ -28,28 +28,36 @@ export class ApiService {
     return this.isDemo ? this.apiURLDemo : this.apiURLProduction;
   }
 
-  getOrCreateUserId(): Promise<String> {
+  getOrCreateUserId(): Promise<string> {
     return this.getOrCreateUserData().then(userData => {
       return userData.userId;
     });
   }
 
-  getOrCreateUserData(): Promise<UserData> {
-    return new Promise((resolve, reject) => {
-      if (this.store.getUserData() == undefined) {
-        // Do API request toget UID
-        this.createNewUser().then(
-          (newUserData: UserData) => {
-            resolve(newUserData);
-          },
-          error => {
-            reject("Canot access userId! " + error.message);
-          }
-        );
-      } else {
-        resolve(this.store.getUserData());
-      }
-    });
+  private getOrCreateUserData(): Promise<UserData> {
+    if (this.isDemo) {
+      return new Promise((resolve, reject) => {
+        const userData = new UserData();
+        userData.userId = "demoUser";
+        resolve(userData);
+      });
+    } else {
+      return new Promise((resolve, reject) => {
+        if (this.store.getUserData() == undefined) {
+          // Do API request toget UID
+          this.createNewUser().then(
+            (newUserData: UserData) => {
+              resolve(newUserData);
+            },
+            error => {
+              reject("Canot access userId! " + error.message);
+            }
+          );
+        } else {
+          resolve(this.store.getUserData());
+        }
+      });
+    }
   }
 
   getDailyTip(): Promise<Tipp> {
@@ -118,35 +126,38 @@ export class ApiService {
     );
   }
 
-  getChallenge(challengeId: String) {
-    // fixme
-    return this.httpClient.get<Challenge>(
-      `${this.getApiURL()}/users/${this.store.getUserData()}/challenges/${challengeId}`
-    );
+  getChallengeById(challengeId: string): Promise<Challenge> {
+    return this.getOrCreateUserId().then(userId => {
+      return this.getChallengeFromUrl(
+        `${this.getApiURL()}/users/${userId}/challenges/${challengeId}`
+      );
+    });
   }
 
   getDailyChallenge(): Promise<Challenge> {
     return this.getRandomChallenge("");
   }
 
-  getRandomChallenge(category: String): Promise<Challenge> {
+  getRandomChallenge(category: string): Promise<Challenge> {
     return this.getOrCreateUserId().then(userId => {
-      return new Promise((resolve, reject) => {
-        this.httpClient
-          .get<Challenge>(
-            this.isDemo
-              ? `${this.getApiURL()}/users/${userId}/random_challenge`
-              : `${this.getApiURL()}/users/${userId}/random_challenge/`
-          )
-          .subscribe(
-            (data: Challenge) => {
-              resolve(data);
-            },
-            error => {
-              reject("Error! " + error.message);
-            }
-          );
-      });
+      return this.getChallengeFromUrl(
+        this.isDemo
+          ? `${this.getApiURL()}/users/${userId}/random_challenge`
+          : `${this.getApiURL()}/users/${userId}/random_challenge/`
+      );
+    });
+  }
+
+  private getChallengeFromUrl(url: string): Promise<Challenge> {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get<Challenge>(url).subscribe(
+        (data: Challenge) => {
+          resolve(data);
+        },
+        error => {
+          reject("Error! " + error.message);
+        }
+      );
     });
   }
 }

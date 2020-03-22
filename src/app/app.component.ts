@@ -17,11 +17,15 @@ export class AppComponent {
     this.activatedRoute.queryParams.subscribe(params => {
       let demo = params["demo"];
       if (demo == undefined) {
-        console.log("Demo mode is: ", store.isDemoMode());
+        console.log("Demo mode is:", store.isDemoMode());
       } else {
         let bDemo: boolean = demo == "true";
-        store.setDemoMode(bDemo);
-        console.log("Set demo mode to: ", bDemo);
+        if (store.isDemoMode() == bDemo) {
+          console.log("Demo mode is:", store.isDemoMode());
+        } else {
+          store.setDemoMode(bDemo);
+          console.log("Set demo mode to:", bDemo);
+        }
       }
     });
   }

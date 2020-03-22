@@ -1,3 +1,3 @@
 export class UserData {
-    userId: String;
+  userId: string;
 }
