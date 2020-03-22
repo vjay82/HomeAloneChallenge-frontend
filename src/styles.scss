@@ -14,6 +14,7 @@ $color-red: #DE3636;
 }
 
 .page {
+  overflow: auto;
   background: $color-background;
   min-height: 100vh;
   padding-top: 25px;
@@ -64,4 +65,3 @@ $color-red: #DE3636;
   }
 
 }
-

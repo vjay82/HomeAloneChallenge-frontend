@@ -7,6 +7,7 @@ import { UserData } from "../classes/user-data";
 export class Store {
   private userData: UserData;
   private activeChallenge: Challenge;
+  private activeChallengeTimer: number;
   private demoMode: boolean = false;
 
   constructor(private persistenceService: PersistenceService) {
@@ -15,11 +16,35 @@ export class Store {
       "ACTIVE_CHALLENGE",
       StorageType.LOCAL
     );
+
+    if (this.activeChallenge != null)  {
+      // Only request active challenge timer if theres an active challenge
+      this.activeChallengeTimer = this.persistenceService.get("ACTIVE_CHALLENGE_TIMER", StorageType.LOCAL);
+    } else {
+      this.activeChallengeTimer = null;
+    }
+    
     this.demoMode = this.persistenceService.get("DEMO_MODE", StorageType.LOCAL);
     if (typeof this.demoMode !== "boolean") {
       this.demoMode = false;
     }
   }
+
+  getActiveChallengeTimer(): number {
+    return this.activeChallengeTimer;
+  }
+
+  setActiveChallengeTimer(timer: number) {
+    this.activeChallengeTimer = timer;
+    if (
+      !this.persistenceService.set("ACTIVE_CHALLENGE_TIMER", this.activeChallengeTimer, {
+        type: StorageType.LOCAL
+      })
+    ) {
+      console.log("Cant set active challenge timer!");
+    }
+  }
+
 
   isDemoMode(): boolean {
     return this.demoMode;

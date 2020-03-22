@@ -32,5 +32,12 @@ export class SelectChallengePageComponent implements OnInit {
     });
   }
 
+  public selectDailyChallenge() {
+    this.api.getDailyChallenge().then(challenge => {
+      this.store.setActiveChallenge(challenge);
+      this.router.navigate([`/challenge`]);
+    });
+  }
+
   ngOnInit(): void {}
 }
