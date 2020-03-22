@@ -22,6 +22,7 @@ import { TranslateCategoryPipe } from './pipes/translate-category/translate-cate
 import { ParseDurationPipe } from './pipes/parse-duration/parse-duration.pipe';
 import { ManageChallengesPageComponent } from './manage-challenges-page/manage-challenges-page.component';
 import {FormsModule} from "@angular/forms";
+import { RevardTreePageComponent } from './revard-tree-page/revard-tree-page.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {FormsModule} from "@angular/forms";
     TranslateCategoryPipe,
     ParseDurationPipe,
     ManageChallengesPageComponent,
+    RevardTreePageComponent,
   ],
   imports: [
     BrowserModule,
