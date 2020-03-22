@@ -40,7 +40,7 @@
       Du musst alle Felder ausfüllen.
     </div>
 
-    <button type="button" style="margin: 0 40px; width: 100%;" class="btn mr-2 btn-green big-btn" (click)="onClickCreateChallenge()">
+    <button type="button" style="margin: 0 40px; width: 100%;" class="btn mr-2 btn-green big-btn" (click)="onClickCreateChallenge(dialogcontent)">
       Erstellen
     </button>
   </div>
@@ -67,3 +67,16 @@
   <!--      </div>-->
 
 </div>
+
+<ng-template #dialogcontent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Aufgabe erstellt</h4>
+  </div>
+  <div class="modal-body">
+    <p>Die Aufgabe wurde erfolgreich angelegt.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close(modal)">Okay</button>
+  </div>
+</ng-template>
+
