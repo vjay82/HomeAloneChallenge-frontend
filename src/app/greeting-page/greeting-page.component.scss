@@ -1,19 +1,61 @@
+
+.greetingPage {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  .btn-green {
+    background-color: #637454;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-green:hover {
+    background-color: #546347;
+    outline: none;
+  }
+
+  .btn-green:focus {
+    background-color: #546347;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
 .greetingPage svg {
-  margin-left: 25%;
-  width: 50%;
+  /* margin-left: 25%;
+  margin: auto; */
+  width: 50%;  
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }
 
 .greetingPage h1 {
-  text-align: center;
+  /*text-align: center;
   width: 100%;
   margin-top: 80px;
+  
+  margin-left: 25%; 
+  margin: auto;
+  width: 50%; */ 
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 32px;
 }
 
 .greetingPage p {
+  /*text-align: center;
+  width: 100%;
+  margin-bottom: 80px;*/
   text-align: center;
   width: 100%;
   margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (orientation: portrait) {

@@ -18,19 +18,27 @@
 
 h1 {
   font-family: Roboto, sans-serif;
-  font-size: 24px;
+  font-size: 32px;
+  font-weight: bold;
   text-align: center;
-  padding-top: 6vh;
-  padding-bottom: 6vh;
+  /*padding-top: 6vh;
+  padding-bottom: 6vh;*/
+  margin-top: 6vh;
+  margin-bottom: 6vh;
   flex-grow: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 .buttonContainer {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-  grid-column-gap: 2vmin;
-  grid-row-gap: 2vmin;
+  /*grid-template-columns: auto auto;
+  grid-template-rows: auto auto;*/
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 3vmin;
+  grid-row-gap: 3vmin;
   flex-grow: 1;
 
   button {
@@ -47,19 +55,34 @@ h1 {
     font-size: 14px;
     line-height: 20px;
 
-    height: 125px;
+    /*height: 125px;*/
+    height: 100%;
 
     /* or 143% */
     text-align: center;
     letter-spacing: 0.2px;
 
     /* black light */
-    color: #3B414B;
+    color: #3B414B;    
 
     svg {
       margin-bottom: 5%;
     }
   }
+}
+
+.dashed {
+  border: 2px dashed #b1b1b1 !important;
+}
+
+.buttonContainer button:hover {
+  background-color: #efefef;
+}
+
+.buttonContainer button:focus {
+  background-color: #efefef;
+  outline: none;
+  box-shadow: none;
 }
 
 .hint {
@@ -79,7 +102,7 @@ h1 {
   }
 
   .hintCaption {
-    padding-top: 8px;
+    padding-top: 15px;
     padding-bottom: 15px;
     font-weight: bold;
     text-align: center;
@@ -125,4 +148,30 @@ h1 {
     grid-template-rows: 100%;
     height: 70vh;
   }
+}
+
+/* Evtl. raus  --> hint: fixed size and scrollbar??? */
+@media (orientation: portrait) {
+  .hint {
+    height: fit-content;
+  }
+}
+
+
+/* define scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

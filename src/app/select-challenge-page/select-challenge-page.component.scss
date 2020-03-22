@@ -1,5 +1,158 @@
-.subheadline {
-  font-size: 16px;
-  padding-left: 3%;
-  padding-top: 4%;
+$color-green-dark: #637454;
+
+.content {
+  margin-top: 60px;
+
+  h2 {
+    font-size: 30px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
+  
+}
+
+.card-slider {
+  width: 90%;
+  height: auto;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+  overflow-y: hidden;
+  user-select: none;
+
+}
+
+.card-slider-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4fr 2fr;
+  grid-row-gap: 20px;
+  width: 200px;
+  height: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  min-width: 200px;
+
+  .card-text-container {
+    font-size: 23px;
+    align-self: start;
+  }
+
+}
+
+.card-image-container {
+  background-color: $color-green-dark;
+  border-radius: 10px;
+  
+  align-items: center;
+  /* justify-items: center; */
+  display: flex;
+
+  svg {
+    margin-left: auto;
+    margin-right: auto;
+    height: 90px;
+  }
+}
+
+.card-image-container:hover {
+  background-color: #546347;
+}
+
+.card-image-container:focus {
+  background-color: #546347;
+}
+
+.headline {
+
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 0px;
+    /* width: -webkit-fill-available; */
+    width: 100%;
+    text-align: center;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* help keeping title in center: margin(h1) + width(svg)*/
+  .placeholder {
+    width: 35px;
+  }
+}
+
+.daily-challenge-container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 100px;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  margin-top: 30px;
+  padding: 50px;
+  padding-bottom: 30px;
+  -webkit-box-shadow: 10px 10px 60px -44px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 60px -44px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 60px -44px rgba(0,0,0,0.75);
+
+  .daily-challenge-text {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .category {
+    background-color: #d6ecf3;
+    color: #37c5b3;
+    padding: 5px;
+    border-radius: 7px;
+    margin-right: 10px;
+  }
+  .time {
+    font-style: italic;
+    color: gray
+  }
+
+  .daily-challenge-bottom {
+    margin-top: 60px;
+  }
+}
+
+
+
+
+/* define scrollbar */
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ded7c1;
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
