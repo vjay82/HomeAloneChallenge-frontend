@@ -14,6 +14,7 @@
   flex-grow: 1;
   justify-items: stretch;
   align-items: stretch;
+  padding-bottom: 65px;
 }
 
 h1 {
@@ -63,7 +64,7 @@ h1 {
     letter-spacing: 0.2px;
 
     /* black light */
-    color: #3B414B;    
+    color: #3B414B;
 
     svg {
       margin-bottom: 5%;
@@ -164,14 +165,14 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff; 
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
