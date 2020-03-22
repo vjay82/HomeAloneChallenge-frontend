@@ -3,6 +3,7 @@ import { Challenge } from "../classes/challenge";
 import { Router } from "@angular/router";
 import { ApiService } from "../api-service/api.service";
 import { Store } from "../storage/store";
+import {Location} from "@angular/common";
 
 @Component({
   selector: "app-manage-challenges",
@@ -10,12 +11,14 @@ import { Store } from "../storage/store";
   styleUrls: ["./manage-challenges-page.component.scss"]
 })
 export class ManageChallengesPageComponent implements OnInit {
-  public challenges$: Promise<Challenge[]>;
+
+  challenges$: Promise<Challenge[]>;
 
   constructor(
     private router: Router,
     private api: ApiService,
-    private store: Store
+    private store: Store,
+    public location: Location,
   ) {
     this.challenges$ = this.api.getAllChallengesOfUser();
   }

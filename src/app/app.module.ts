@@ -21,6 +21,7 @@ import { ApiService } from './api-service/api.service';
 import { TranslateCategoryPipe } from './pipes/translate-category/translate-category.pipe';
 import { ParseDurationPipe } from './pipes/parse-duration/parse-duration.pipe';
 import { ManageChallengesPageComponent } from './manage-challenges-page/manage-challenges-page.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ManageChallengesPageComponent } from './manage-challenges-page/manage-c
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    PersistenceModule
+    PersistenceModule,
+    FormsModule
   ],
   providers: [Store, ApiService],
   bootstrap: [AppComponent]
