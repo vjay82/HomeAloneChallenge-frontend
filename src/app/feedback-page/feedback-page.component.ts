@@ -13,4 +13,8 @@ export class FeedbackPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickSendFeedBack() {
+    // TODO: send feedback to API service
+  }
+
 }
