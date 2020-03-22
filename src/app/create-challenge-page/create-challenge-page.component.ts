@@ -42,6 +42,10 @@ export class CreateChallengePageComponent implements OnInit {
         description: this.description,
         category: this.category,
         duration: this.duration,
+      }).then(value => {
+        console.log(value);
+      }).catch(reason => {
+        console.log(reason);
       });
 
       this.router.navigateByUrl("/main")
