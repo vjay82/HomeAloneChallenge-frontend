@@ -36,11 +36,6 @@ export class ApiService {
 
   getOrCreateUserData(): Promise<UserData> {
     return new Promise((resolve, reject) => {
-      // if demo mode, just return a default value
-      //if (this.isDemo) {
-      //  resolve("demo");
-      //}
-
       if (this.store.getUserData() == undefined) {
         // Do API request toget UID
         this.createNewUser().then(

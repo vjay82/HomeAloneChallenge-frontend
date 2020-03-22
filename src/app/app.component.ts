@@ -15,16 +15,9 @@ export class AppComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private store: Store) {
     this.activatedRoute.queryParams.subscribe(params => {
-      console.log("Last User ID:", store.getUserData());
-      console.log("Last Demo Mode:", store.isDemoMode());
       let demo = params["demo"];
       if (demo == undefined) {
-        console.log(
-          "Demo mode is: ",
-          store.isDemoMode(),
-          "type: ",
-          typeof store.isDemoMode()
-        );
+        console.log("Demo mode is: ", store.isDemoMode());
       } else {
         let bDemo: boolean = demo == "true";
         store.setDemoMode(bDemo);
