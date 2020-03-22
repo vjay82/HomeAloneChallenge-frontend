@@ -1,0 +1,73 @@
+.headline {
+
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  
+    .headline-backbtn {
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 15px;  
+    }
+  
+    .headline-backbtn:hover {
+      background-color: #ded7c1;
+    } 
+  
+    h1 {
+      font-size: 32px;
+      margin-bottom: 0px;
+      /* width: -webkit-fill-available; */
+      width: 100%;
+      text-align: center;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+  
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  
+    /* help keeping title in center: margin(h1) + width(svg)*/
+    .placeholder {
+      width: 35px;
+    }
+  }
+
+.submit-button {
+  .btn-green {
+    background-color: #637454;
+    width: 90%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-green:hover {
+    background-color: #546347;
+    outline: none;
+  }
+
+  .btn-green:focus {
+    background-color: #546347;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.input-form {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 90%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
+    column-gap: 20px;
+    row-gap: 30px;
+}

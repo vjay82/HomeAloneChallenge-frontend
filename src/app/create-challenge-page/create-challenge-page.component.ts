@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-create-challenge-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateChallengePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public location: Location) { }
 
   ngOnInit(): void {
   }
