@@ -13,6 +13,7 @@ $color-green-dark: #637454;
   
 }
 
+<<<<<<< HEAD
 .card-slider {
   width: 90%;
   height: auto;
@@ -156,3 +157,56 @@ $color-green-dark: #637454;
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+=======
+.dailyChallenge {
+  background: #FFFFFF;
+  border: 2px solid #637454;
+  box-sizing: border-box;
+  overflow: auto;
+
+  /* card shadow */
+  box-shadow: 0 4px 26px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  padding: 10px 40px 30px 40px;
+
+  .icon {
+    display: block;
+    margin: 15px auto 0 auto;
+  }
+
+  .caption {
+    padding-top: 8px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .title {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    letter-spacing: 0.2px;
+
+    color: #171D33;
+  }
+
+  .description {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    /* or 143% */
+    letter-spacing: 0.2px;
+
+    color: #979797;
+  }
+}
+>>>>>>> 75926c44e944878402dd9a2c012a1ff8346ec0ea

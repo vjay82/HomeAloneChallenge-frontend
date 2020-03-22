@@ -96,19 +96,24 @@ h1 {
   border-radius: 6px;
   padding: 10px 40px 30px 40px;
 
-  .hint-icon {
+  .icon {
     display: block;
     margin: 15px auto 0 auto;
   }
 
+<<<<<<< HEAD
   .hintCaption {
     padding-top: 15px;
+=======
+  .caption {
+    padding-top: 8px;
+>>>>>>> 75926c44e944878402dd9a2c012a1ff8346ec0ea
     padding-bottom: 15px;
     font-weight: bold;
     text-align: center;
   }
 
-  .hint-title {
+  .title {
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -120,7 +125,7 @@ h1 {
     color: #171D33;
   }
 
-  .hint-description {
+  .description {
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 500;
