@@ -13,15 +13,7 @@
   <div class="input-form">
     <select [(ngModel)]="category">
       <option disabled selected default [ngValue]="undefined">Kategorie auswählen</option>
-      <option value="{{ categories.selfcare }}">Psychische Gesundheit</option>
-      <option value="{{ categories.household }}">Haushalt</option>
-      <option value="{{ categories.sport }}">Sport</option>
-      <option value="{{ categories.social }}">Sozial</option>
-      <option value="{{ categories.fun }}">Unterhaltung</option>
-      <option value="{{ categories.eco }}">Umwelt</option>
-      <option value="{{ categories.art }}">Kunst</option>
-      <option value="{{ categories.group }}">Gemeinschaft</option>
-      <option value="{{ categories.other }}">Andere</option>
+      <option *ngFor="let category of categories" value="{{ category }}">{{ category | translateCategory}}</option>
     </select>
 
     <input type="text" placeholder="Titel" [(ngModel)]="title"/>

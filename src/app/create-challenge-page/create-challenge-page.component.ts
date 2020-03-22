@@ -11,7 +11,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./create-challenge-page.component.scss']
 })
 export class CreateChallengePageComponent implements OnInit {
-  categories: typeof Category = Category;
+  categories: string[] = Object.keys(Category);
 
   category: string;
   title: string;
