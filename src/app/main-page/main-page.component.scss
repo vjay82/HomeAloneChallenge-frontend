@@ -19,6 +19,7 @@
 
 .logo {
   margin-bottom: 30px;
+  width: 75%;
 }
 
 .buttonContainer {
@@ -80,6 +81,7 @@
   border: 2px solid #637454;
   box-sizing: border-box;
   overflow: auto;
+  cursor: default;
 
   /* card shadow */
   box-shadow: 0 4px 26px rgba(0, 0, 0, 0.06);

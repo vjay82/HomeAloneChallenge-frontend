@@ -141,6 +141,7 @@ $color-green-dark: #637454;
   width: 85vw;
   margin: 30px auto 30px auto !important;
   padding: 30px 40px;
+  cursor: pointer;
 
   background: #FFFFFF;
 
@@ -151,6 +152,7 @@ $color-green-dark: #637454;
   button {
     position: relative;
     top: 8px;
+    width: 100%;
   }
 
   .challenge-title {
