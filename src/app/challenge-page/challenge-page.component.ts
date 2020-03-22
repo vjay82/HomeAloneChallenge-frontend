@@ -13,8 +13,9 @@ import { RouterModule, Router } from "@angular/router";
 })
 export class ChallengePageComponent {
   challenge: Challenge;
-  timer: number;
+  startTime: number;
   timerOutput: String = "00 h : 00 min : 00 sec"; // emtry string
+  timerInterval;
 
   constructor(
     public location: Location,
@@ -30,17 +31,32 @@ export class ChallengePageComponent {
       // No active challenge --> back to mainpage
       this.router.navigate([`/main`]);
       
-    }
-
-    this.timer = 0;
+    }    
   }
 
   ngOnInit() {
     // Set timer and count up
-    setInterval(() => {
-      this.timer += 1;
-      this.timerOutput = this.getTimeFromSeconds(this.timer);
+
+    this.startTime = Math.ceil(new Date().getTime() / 1000);
+
+    if (this.store.getActiveChallengeTimer() == null) {
+      this.store.setActiveChallengeTimer(this.startTime)
+    } else {
+      this.startTime = this.store.getActiveChallengeTimer();
+    }  
+
+    this.timerInterval = setInterval(() => {
+      this.timerOutput = this.getTimeFromSeconds(this.getDeltaSeconds(this.startTime));
    }, 1000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.timerInterval);
+  }
+
+  getDeltaSeconds(secs: number) {
+    return Math.ceil(new Date().getTime() / 1000) - secs;
+
   }
 
   getTimeFromSeconds(seconds: number) {
@@ -59,6 +75,7 @@ export class ChallengePageComponent {
 
   public cancel() {
     this.store.setActiveChallenge(null);
+    this.store.setActiveChallengeTimer(null);
     this.router.navigate([`/challenge/canceled`]);
   }
 }
