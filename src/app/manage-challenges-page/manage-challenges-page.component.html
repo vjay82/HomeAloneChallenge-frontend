@@ -17,14 +17,22 @@
   <div class="content">
 
     <ng-container *ngIf="challenges$ | async as challenges">
+
+      <ng-container *ngIf="challenges.length > 0">
+        <button type="button" class="btn mr-2 newChallengeButton" (click)="createChallenge()">
+          + Erstellen
+        </button>
+      </ng-container>
+
       <div class="challenges">
         <ng-container *ngIf="challenges.length == 0">
           <h1>Keine Aufgabe hier</h1>
-          <div>
+          <div class="noChallengeText">
             Bereit, neue Aufgaben zu erstellen?<br>
             Tippen Sie auf das +, um sie aufzuschrauben.
           </div>
-          <svg width="136" height="286" viewBox="0 0 136 286" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="noChallengeImage" width="136" height="286" viewBox="0 0 136 286" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path
               d="M50.9631 222.825C50.9631 222.825 56.5069 252.65 62.7529 264.902C68.9989 277.154 60.5354 280.702 64.7487 284.712C68.962 288.722 77.444 278.263 77.8875 273.144C78.331 268.025 71.4382 263.128 67.8717 254.221C64.3052 245.314 57.1906 222.806 57.1906 222.806L50.9631 222.825Z"
               fill="#93A583" />
@@ -81,9 +89,15 @@
           <span class="challenge-time">{{ challenge.duration | parseDuration }}</span>
         </div>
       </div>
+
+      <ng-container *ngIf="challenges.length == 0">
+        <button type="button" class="btn mr-2 newChallengeButton newChallengeButtonBottom" (click)="createChallenge()">
+          + Erstellen
+        </button>
+      </ng-container>
+
     </ng-container>
 
-    <button type="button" class="btn mr-2 btn-green big-btn" (click)="createChallenge()">
-      + Neue Aufgabe hinzufügen
-    </button>
+
+
   </div>
