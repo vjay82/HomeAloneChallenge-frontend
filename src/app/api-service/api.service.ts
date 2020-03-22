@@ -102,10 +102,14 @@ export class ApiService {
   }
 
   getAllChallengesOfUser(): Promise<Challenge[]> {
-    return this.getOrCreateUserData().then(userId => {
+    return this.getOrCreateUserId().then(userId => {
       return new Promise((resolve, reject) => {
         this.httpClient
-          .get<Challenge[]>(`${this.getApiURL()}/users/${userId}/challenges`)
+          .get<Challenge[]>(
+            this.isDemo
+              ? `${this.getApiURL()}/users/${userId}/allChallenges.json`
+              : `${this.getApiURL()}/users/${userId}/challenges`
+          )
           .subscribe(
             (data: Challenge[]) => {
               resolve(data);
