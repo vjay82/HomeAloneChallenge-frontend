@@ -11,6 +11,16 @@ import { Challenge } from "../classes/challenge";
 export class SelectChallengePageComponent implements OnInit {
   public dailyChallenge$: Promise<Challenge>;
 
+  challenge: Challenge = {
+    id: 'abcdefg',
+    title: 'Title for sport challenge',
+    description: 'Wet your hands, scrub everywhere (under those fingernails, too) with soap for at least 20 seconds, then rinse and dry well with a clean towel.',
+    category: 'sport',
+    additionalLink: '',
+    rewardPoints: 10,
+    duration: 666,
+  };
+
   constructor(private api: ApiService, public location: Location) {
     //this.dailyChallenge$ = this.api.getDailyChallenge();
   }

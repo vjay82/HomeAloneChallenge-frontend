@@ -187,7 +187,7 @@
     </div>
 
 
-    <h2>Herausforderung des Tages</h2>
+    <!--<h2>Herausforderung des Tages</h2>
 
     <div class="daily-challenge-container">
       <h3>Ruf deine Großeltern an</h3>
@@ -199,6 +199,16 @@
 
 
     </div>
+  </div>-->
+
+  <h2>Herausforderung des Tages</h2>
+
+  <div class="challenge">
+    <span class="challenge-title">{{ challenge.title }}</span>
+    <p class="challenge-description">{{ challenge.description }}</p>
+
+    <span class="challenge-category">{{ challenge.category | translateCategory }}</span>
+    <span class="challenge-time">{{ challenge.duration | parseDuration }}</span>
   </div>
 
 
