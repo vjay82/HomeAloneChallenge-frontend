@@ -1,10 +1,8 @@
 
 export class Challenge {
-    id: string;
+    id?: string;
     title: string;
     description: string;
     category: string;
     duration: number;
-    rewardPoints: number;
-    additionalLink: string;
 }
