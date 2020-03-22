@@ -19,7 +19,7 @@ export class Store {
     );
     this.challengeInEditor = this.persistenceService.get(
       "EDIT_CHALLENGE",
-      StorageType.MEMORY
+      StorageType.LOCAL
     );
 
     if (this.activeChallenge != null) {

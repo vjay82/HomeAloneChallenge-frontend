@@ -81,6 +81,46 @@ export class ApiService {
     });
   }
 
+  editChallenge(challenge: Challenge): Promise<Challenge | string> {
+    return this.getOrCreateUserId().then(userId => {
+      return new Promise((resolve, reject) => {
+        this.httpClient
+          .patch<Challenge>(
+            `${this.getApiURL()}/users/${userId}/challenges/${challenge.id}`,
+            challenge
+          )
+          .subscribe(
+            (data: Challenge) => {
+              resolve(data);
+            },
+            error => {
+              reject("Error! " + error.message);
+            }
+          );
+      });
+    });
+  }
+
+  deleteChallenge(challengeId: string): Promise<Challenge | string> {
+    return this.getOrCreateUserId().then(userId => {
+      return new Promise((resolve, reject) => {
+        this.httpClient
+          .delete<Challenge>(
+            `${this.getApiURL()}/users/${userId}/challenges/${challengeId}`
+          )
+          .subscribe(
+            (data: Challenge) => {
+              resolve(data);
+            },
+            error => {
+              resolve(null);
+              //reject("Error! " + error.message);
+            }
+          );
+      });
+    });
+  }
+
   getChallengeById(challengeId: string): Promise<Challenge> {
     return this.getOrCreateUserId().then(userId => {
       return this.getChallengeFromUrl(

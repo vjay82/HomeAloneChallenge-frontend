@@ -2,9 +2,9 @@
 
   <div class="headline">
 
-    <div class="headline-backbtn" (click)="this.location.back()">
+    <div class="headline-backbtn" routerLink="/main">
       <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="black"/>
+        <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="black" />
       </svg>
     </div>
 
@@ -19,7 +19,7 @@
     <div class="card-slider">
       <div class="card-slider-item" *ngFor="let category of categories">
         <div class="card-image-container" (click)="selectCategory(category)">
-          <img src="assets/category/icon/{{category}}.svg"/>
+          <img src="assets/category/icon/{{category}}.svg" />
         </div>
         <div class="card-text-container">
           {{category | translateCategory}}
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <h2>Aufgabe des Tages</h2>
+    <h2>Deutschlands Aufgabe des Tages</h2>
 
     <ng-container *ngIf="dailyChallenge$ | async as dailyChallenge">
       <div class="challenge" (click)="selectDailyChallenge()">
