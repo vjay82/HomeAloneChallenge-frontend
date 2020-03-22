@@ -30,8 +30,7 @@ export class ChallengePageComponent {
     if (this.challenge === null) {
       // No active challenge --> back to mainpage
       this.router.navigate([`/main`]);
-      
-    }    
+    }
   }
 
   ngOnInit() {
@@ -40,14 +39,16 @@ export class ChallengePageComponent {
     this.startTime = Math.ceil(new Date().getTime() / 1000);
 
     if (this.store.getActiveChallengeTimer() == null) {
-      this.store.setActiveChallengeTimer(this.startTime)
+      this.store.setActiveChallengeTimer(this.startTime);
     } else {
       this.startTime = this.store.getActiveChallengeTimer();
-    }  
+    }
 
     this.timerInterval = setInterval(() => {
-      this.timerOutput = this.getTimeFromSeconds(this.getDeltaSeconds(this.startTime));
-   }, 1000);
+      this.timerOutput = this.getTimeFromSeconds(
+        this.getDeltaSeconds(this.startTime)
+      );
+    }, 1000);
   }
 
   ngOnDestroy() {
@@ -56,24 +57,27 @@ export class ChallengePageComponent {
 
   getDeltaSeconds(secs: number) {
     return Math.ceil(new Date().getTime() / 1000) - secs;
-
   }
 
   getTimeFromSeconds(seconds: number) {
-    
-    var hours   = Math.floor(seconds / 3600);
-    var minutes = Math.floor((seconds - (hours * 3600)) / 60);
-    var seconds = seconds - (hours * 3600) - (minutes * 60);
+    var hours = Math.floor(seconds / 3600);
+    var minutes = Math.floor((seconds - hours * 3600) / 60);
+    var seconds = seconds - hours * 3600 - minutes * 60;
 
-    var sHours = (hours < 10) ? "0"+hours.toString() : hours.toString();
-    var sMinutes = (minutes < 10) ? "0"+minutes.toString() : minutes.toString();
-    var sSeconds = (seconds < 10) ? "0"+seconds.toString() : seconds.toString();
+    var sHours = hours < 10 ? "0" + hours.toString() : hours.toString();
+    var sMinutes = minutes < 10 ? "0" + minutes.toString() : minutes.toString();
+    var sSeconds = seconds < 10 ? "0" + seconds.toString() : seconds.toString();
 
-    return sHours+' h : '+sMinutes+' min : '+sSeconds + " sec";
-
+    return sHours + " h : " + sMinutes + " min : " + sSeconds + " sec";
   }
 
-  public cancel() {
+  public handleComplete() {
+    this.store.setActiveChallenge(null);
+    this.store.setActiveChallengeTimer(null);
+    this.router.navigate([`/challenge/completed`]);
+  }
+
+  public handleCancel() {
     this.store.setActiveChallenge(null);
     this.store.setActiveChallengeTimer(null);
     this.router.navigate([`/challenge/canceled`]);
