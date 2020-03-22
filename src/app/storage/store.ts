@@ -7,30 +7,29 @@ import { UserData } from "../classes/user-data";
 export class Store {
   private userData: UserData;
   private activeChallenge: Challenge;
-  private demoVersion: boolean = false;
+  private demoMode: boolean = false;
 
   constructor(private persistenceService: PersistenceService) {
-    this.userData = this.persistenceService.get(
-      "USER_DATA",
-      StorageType.IMMUTABLE_MEMORY
-    );
+    this.userData = this.persistenceService.get("USER_DATA", StorageType.LOCAL);
     this.activeChallenge = this.persistenceService.get(
       "CHALLENGE",
-      StorageType.MEMORY
+      StorageType.LOCAL
     );
-    this.demoVersion =
-      "true" == this.persistenceService.get("DEMO_VERSION", StorageType.MEMORY);
+    this.demoMode = this.persistenceService.get("DEMO_MODE", StorageType.LOCAL);
+    if (typeof this.demoMode !== "boolean") {
+      this.demoMode = false;
+    }
   }
 
-  isDemoVersion(): boolean {
-    return this.demoVersion;
+  isDemoMode(): boolean {
+    return this.demoMode;
   }
 
-  setDemoVersion(demoVersion: boolean) {
-    this.demoVersion = demoVersion;
+  setDemoMode(demoMode: boolean) {
+    this.demoMode = demoMode;
     if (
-      !this.persistenceService.set("DEMO_VERSION", demoVersion, {
-        type: StorageType.MEMORY
+      !this.persistenceService.set("DEMO_MODE", demoMode, {
+        type: StorageType.LOCAL
       })
     ) {
       console.log("Cant set DEMO_VERSION!");
@@ -41,7 +40,7 @@ export class Store {
     this.activeChallenge = challenge;
     if (
       !this.persistenceService.set("CHALLENGE", challenge, {
-        type: StorageType.MEMORY
+        type: StorageType.LOCAL
       })
     ) {
       console.log("Cant set active challenge!");
@@ -60,7 +59,7 @@ export class Store {
     this.userData = userData;
     if (
       !this.persistenceService.set("USER_DATA", userData, {
-        type: StorageType.IMMUTABLE_MEMORY
+        type: StorageType.LOCAL
       })
     ) {
       // TODO: error handling!

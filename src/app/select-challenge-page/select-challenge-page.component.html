@@ -1,11 +1,16 @@
 <div class="page">
-  <img
-    class="back-btn"
-    src="../../assets/icon/vector.svg"
-    (click)="this.location.back()"
-  />
+  <img class="back-btn" src="../../assets/icon/vector.svg" (click)="this.location.back()" />
   <h1 class="page-headline">Gib mir eine Aufgabe.</h1>
 
   <h2 class="subheadline">Kategorien</h2>
   <h2 class="subheadline">Herausforderung des Tages</h2>
+
+  <ng-container *ngIf="dailyChallenge$ | async as dailyChallenge">
+    <div class="dailyChallenge">
+      <img src="../../assets/icon/info-icon.svg" class="hint-icon">
+      <div class="caption">Aufgabe des Tages</div>
+      <span class="title">{{ dailyChallenge.title }}</span>
+      <p class="description">{{ dailyChallenge.description }}</p>
+    </div>
+  </ng-container>
 </div>
