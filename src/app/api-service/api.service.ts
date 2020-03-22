@@ -101,7 +101,7 @@ export class ApiService {
     });
   }
 
-  fetchAllChallenges() {
+  getAllChallengesOfUser(): Promise<Challenge[]> {
     return this.getOrCreateUserData().then(userId => {
       return new Promise((resolve, reject) => {
         this.httpClient
