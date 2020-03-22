@@ -4,6 +4,7 @@ import { Location } from "@angular/common";
 import { Challenge } from "../classes/challenge";
 import { ActivatedRoute } from "@angular/router";
 import { Store } from "../storage/store";
+import { RouterModule, Router } from "@angular/router";
 
 @Component({
   selector: "app-challenge-page",
@@ -13,7 +14,16 @@ import { Store } from "../storage/store";
 export class ChallengePageComponent {
   challenge: Challenge;
 
-  constructor(public location: Location, private store: Store) {
+  constructor(
+    public location: Location,
+    private store: Store,
+    private router: Router
+  ) {
     this.challenge = store.getActiveChallenge();
+  }
+
+  public cancel() {
+    this.store.setActiveChallenge(null);
+    this.router.navigate([`/challenge/canceled`]);
   }
 }

@@ -22,8 +22,7 @@
     <div class="card-slider">
 
       <div class="card-slider-item" *ngFor="let category of categories">
-        <div class="card-image-container" (click)="selectCategory('art')">
-          <!--TODO, cannot add category variable-->
+        <div class="card-image-container" (click)="selectCategory(category)">
           <img src="assets/category/icon/{{category}}.svg" />
         </div>
         <div class="card-text-container">

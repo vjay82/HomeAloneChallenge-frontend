@@ -15,6 +15,8 @@ export class AppComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private store: Store) {
     this.activatedRoute.queryParams.subscribe(params => {
+      // switch to challenge if store contains activeChallenge
+
       let demo = params["demo"];
       if (demo == undefined) {
         console.log("Demo mode is:", store.isDemoMode());

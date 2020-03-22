@@ -27,7 +27,7 @@ export class SelectChallengePageComponent implements OnInit {
 
   public selectCategory(category: string) {
     this.api.getRandomChallenge(category).then(challenge => {
-      this.store.setChallenge(challenge);
+      this.store.setActiveChallenge(challenge);
       this.router.navigate([`/challenge`]);
     });
   }
