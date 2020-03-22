@@ -72,8 +72,6 @@ export class ChallengePageComponent {
   }
 
   public handleComplete() {
-    this.store.setActiveChallenge(null);
-    this.store.setActiveChallengeTimer(null);
     this.router.navigate([`/challenge/completed`]);
   }
 

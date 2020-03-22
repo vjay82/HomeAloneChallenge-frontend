@@ -104,13 +104,13 @@
     textarea:focus {
         outline: none;
         border:2px solid #637454;
-        padding: 16px;
+        padding: 18px;
     }
 
     input[type=text]:focus {
         outline: none;
         border:2px solid #637454;
-        padding: 16px; /*BUG with padding on focus ???*/
+        padding: 18px; /*BUG with padding on focus ???*/
     }
 
     select option {

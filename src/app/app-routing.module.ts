@@ -10,6 +10,7 @@ import { CreateChallengePageComponent } from "./create-challenge-page/create-cha
 import { ChallengeCanceledPageComponent } from "./challenge-canceled-page/challenge-canceled-page.component";
 import { SelectChallengePageComponent } from "./select-challenge-page/select-challenge-page.component";
 import { ManageChallengesPageComponent } from "./manage-challenges-page/manage-challenges-page.component";
+import { RevardTreePageComponent } from './revard-tree-page/revard-tree-page.component';
 
 const routes: Routes = [
   { path: "", component: GreetingPageComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "challenge/manage", component: ManageChallengesPageComponent },
   { path: "selectChallenge", component: SelectChallengePageComponent },
   { path: "feedback", component: FeedbackPageComponent },
-  { path: "help", component: HelpPageComponent }
+  { path: "help", component: HelpPageComponent },
+  { path: "revard", component: RevardTreePageComponent }
 ];
 
 @NgModule({
