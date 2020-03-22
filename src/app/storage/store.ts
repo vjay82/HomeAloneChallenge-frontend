@@ -7,6 +7,7 @@ import { UserData } from "../classes/user-data";
 export class Store {
   private userData: UserData;
   private activeChallenge: Challenge;
+  private challengeInEditor: Challenge;
   private activeChallengeTimer: number;
   private demoMode: boolean = false;
 
@@ -16,14 +17,21 @@ export class Store {
       "ACTIVE_CHALLENGE",
       StorageType.LOCAL
     );
+    this.challengeInEditor = this.persistenceService.get(
+      "EDIT_CHALLENGE",
+      StorageType.MEMORY
+    );
 
-    if (this.activeChallenge != null)  {
+    if (this.activeChallenge != null) {
       // Only request active challenge timer if theres an active challenge
-      this.activeChallengeTimer = this.persistenceService.get("ACTIVE_CHALLENGE_TIMER", StorageType.LOCAL);
+      this.activeChallengeTimer = this.persistenceService.get(
+        "ACTIVE_CHALLENGE_TIMER",
+        StorageType.LOCAL
+      );
     } else {
       this.activeChallengeTimer = null;
     }
-    
+
     this.demoMode = this.persistenceService.get("DEMO_MODE", StorageType.LOCAL);
     if (typeof this.demoMode !== "boolean") {
       this.demoMode = false;
@@ -37,14 +45,17 @@ export class Store {
   setActiveChallengeTimer(timer: number) {
     this.activeChallengeTimer = timer;
     if (
-      !this.persistenceService.set("ACTIVE_CHALLENGE_TIMER", this.activeChallengeTimer, {
-        type: StorageType.LOCAL
-      })
+      !this.persistenceService.set(
+        "ACTIVE_CHALLENGE_TIMER",
+        this.activeChallengeTimer,
+        {
+          type: StorageType.LOCAL
+        }
+      )
     ) {
       console.log("Cant set active challenge timer!");
     }
   }
-
 
   isDemoMode(): boolean {
     return this.demoMode;
@@ -75,6 +86,21 @@ export class Store {
     ) {
       console.log("Cant set active challenge!");
     }
+  }
+
+  setChallengeInEditor(challenge: Challenge) {
+    this.challengeInEditor = challenge;
+    if (
+      !this.persistenceService.set("EDIT_CHALLENGE", challenge, {
+        type: StorageType.LOCAL
+      })
+    ) {
+      console.log("Cant set active challenge!");
+    }
+  }
+
+  getChallengeInEditor(): Challenger {
+    return this.challengeInEditor;
   }
 
   getActiveChallenge(): Challenge {

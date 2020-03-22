@@ -20,5 +20,15 @@ export class ManageChallengesPageComponent implements OnInit {
     this.challenges$ = this.api.getAllChallengesOfUser();
   }
 
+  public selectChallenge(challenge: Challenge) {
+    this.store.setChallengeInEditor(challenge);
+    this.router.navigate([`/challenge/create`]);
+  }
+
+  public createChallenge() {
+    this.store.setChallengeInEditor(null);
+    this.router.navigate([`/challenge/create`]);
+  }
+
   ngOnInit(): void {}
 }

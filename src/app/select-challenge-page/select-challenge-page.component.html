@@ -31,7 +31,7 @@
     <h2>Aufgabe des Tages</h2>
 
     <ng-container *ngIf="dailyChallenge$ | async as dailyChallenge">
-      <div class="challenge">
+      <div class="challenge" (click)="selectDailyChallenge()">
         <span class="challenge-title">{{ dailyChallenge.title }}</span>
         <p class="challenge-description">{{ dailyChallenge.description }}</p>
 
