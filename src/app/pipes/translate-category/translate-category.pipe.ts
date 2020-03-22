@@ -21,10 +21,8 @@ export class TranslateCategoryPipe implements PipeTransform {
         return "Mentale Gesundheit";
       case Category.social:
         return "Miteinander";
-      case Category.sport:
+      case Category.physical:
         return "Bewegung";
-      case Category.other:
-        return "Andere";
       default:
         return "!FEHLER!";
     }

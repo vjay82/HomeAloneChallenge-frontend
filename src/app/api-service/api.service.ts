@@ -90,12 +90,16 @@ export class ApiService {
   }
 
   getDailyChallenge(): Promise<Challenge> {
-    return this.getRandomChallenge("");
+    return this.getOrCreateUserId().then(userId => {
+      return this.getChallengeFromUrl(`${this.getApiURL()}/daily_challenge`);
+    });
   }
 
   getRandomChallenge(category: string): Promise<Challenge> {
     return this.getOrCreateUserId().then(userId => {
-      return this.getChallengeFromUrl(`${this.getApiURL()}/random_challenge`);
+      return this.getChallengeFromUrl(
+        `${this.getApiURL()}/random_challenge?category=${category}`
+      );
     });
   }
 

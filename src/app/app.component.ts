@@ -14,21 +14,18 @@ export class AppComponent {
   title = "HomeAloneChallengeFrontend";
 
   constructor(private activatedRoute: ActivatedRoute, private store: Store) {
-    this.activatedRoute.queryParams.subscribe(params => {
-      // switch to challenge if store contains activeChallenge
-
-      let demo = params["demo"];
-      if (demo == undefined) {
+    let query = window.location.search;
+    let index = query.indexOf("demo=");
+    if (index == -1) {
+      console.log("Demo mode is:", store.isDemoMode());
+    } else {
+      let bDemo: boolean = query.indexOf("demo=true") != -1;
+      if (store.isDemoMode() == bDemo) {
         console.log("Demo mode is:", store.isDemoMode());
       } else {
-        let bDemo: boolean = demo == "true";
-        if (store.isDemoMode() == bDemo) {
-          console.log("Demo mode is:", store.isDemoMode());
-        } else {
-          store.setDemoMode(bDemo);
-          console.log("Set demo mode to:", bDemo);
-        }
+        store.setDemoMode(bDemo);
+        console.log("Set demo mode to:", bDemo);
       }
-    });
+    }
   }
 }

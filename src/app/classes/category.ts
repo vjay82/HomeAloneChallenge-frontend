@@ -6,6 +6,5 @@ export enum Category {
   household = "household",
   selfcare = "selfcare",
   social = "social",
-  sport = "sport",
-  other = "other"
+  physical = "physical"
 }
