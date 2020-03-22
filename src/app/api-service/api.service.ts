@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-import {Challenge} from "../classes/challenge";
-import {Tipp} from "../classes/tipp";
-import {Store} from "../storage/store";
-import {UserData} from "../classes/user-data";
+import { Challenge } from "../classes/challenge";
+import { Tipp } from "../classes/tipp";
+import { Store } from "../storage/store";
+import { UserData } from "../classes/user-data";
 
 @Injectable({
   providedIn: "root"
@@ -61,13 +61,14 @@ export class ApiService {
     });
   }
 
-  createNewChallenge(challenge: Challenge): Promise<Challenge|string> {
+  createNewChallenge(challenge: Challenge): Promise<Challenge | string> {
     return this.getOrCreateUserId().then(userId => {
       return new Promise((resolve, reject) => {
-        this.httpClient.post<Challenge>(
-          `${this.getApiURL()}/users/${userId}/challenges`,
-          challenge
-        )
+        this.httpClient
+          .post<Challenge>(
+            `${this.getApiURL()}/users/${userId}/challenges`,
+            challenge
+          )
           .subscribe(
             (data: Challenge) => {
               resolve(data);
@@ -94,11 +95,7 @@ export class ApiService {
 
   getRandomChallenge(category: string): Promise<Challenge> {
     return this.getOrCreateUserId().then(userId => {
-      return this.getChallengeFromUrl(
-        this.isDemo
-          ? `${this.getApiURL()}/users/${userId}/random_challenge`
-          : `${this.getApiURL()}/users/${userId}/random_challenge/`
-      );
+      return this.getChallengeFromUrl(`${this.getApiURL()}/random_challenge`);
     });
   }
 
