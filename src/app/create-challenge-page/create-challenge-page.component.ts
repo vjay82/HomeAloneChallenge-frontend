@@ -3,6 +3,7 @@ import { Location } from "@angular/common";
 import { Router } from '@angular/router';
 import {Category} from "../classes/category";
 import {ApiService} from "../api-service/api.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-create-challenge-page',
@@ -23,13 +24,14 @@ export class CreateChallengePageComponent implements OnInit {
     public location: Location,
     private router: Router,
     private api: ApiService,
+    private modal: NgbModal,
   ) {
   }
 
   ngOnInit(): void {
   }
 
-  onClickCreateChallenge() {
+  onClickCreateChallenge(dialogcontent) {
     console.log("Creating challenge!");
     console.log(this.category);
     console.log(this.title);
@@ -43,21 +45,19 @@ export class CreateChallengePageComponent implements OnInit {
         category: this.category,
         duration: this.duration,
       }).then(value => {
-        console.log(value);
+        this.modal.open(dialogcontent, {backdrop: false, centered: true, keyboard: false})
       }).catch(reason => {
-        console.log(reason);
+        alert(reason);
       });
 
-      this.router.navigateByUrl("/main")
+
     } else {
       this.invalid = true;
     }
-
-    // TODO: make API call and submit challenge
-
-    // TODO: save as current state in storage
-
-
   }
 
+  close(modal) {
+    modal.close();
+    this.router.navigateByUrl("/main");
+  }
 }
