@@ -39,29 +39,53 @@
 
     <ng-container *ngIf="editingChallenge == null">
       <button type="button" style="margin: 0 40px; width: 100%;" class="btn mr-2 btn-green big-btn"
-        (click)="onClickCreateChallenge(dialogcontent)">
+        (click)="onClickCreateChallenge(dialogcontentCreate)">
         Erstellen
       </button>
     </ng-container>
     <ng-container *ngIf="editingChallenge != null">
       <button type="button" style="margin: 0 40px; width: 100%;" class="btn mr-2 btn-green big-btn"
-        (click)="onClickModifyChallenge(dialogcontent)">
+        (click)="onClickModifyChallenge(dialogcontentModify)">
         Modifizieren
       </button>
       <button type="button" style="background: #DE3636; margin: 0 40px; width: 100%;" class="btn mr-2 btn-green big-btn"
-        (click)="onClickDeleteChallenge(dialogcontent)">
+        (click)="onClickDeleteChallenge(dialogcontentDelete)">
         Löschen
       </button>
     </ng-container>
   </div>
 </div>
 
-<ng-template #dialogcontent let-modal>
+<ng-template #dialogcontentCreate let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Aufgabe erstellt</h4>
   </div>
   <div class="modal-body">
     <p>Die Aufgabe wurde erfolgreich angelegt.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close(modal)">Okay</button>
+  </div>
+</ng-template>
+
+<ng-template #dialogcontentModify let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Aufgabe modifiziert</h4>
+  </div>
+  <div class="modal-body">
+    <p>Die Aufgabe wurde erfolgreich angepasst.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="close(modal)">Okay</button>
+  </div>
+</ng-template>
+
+<ng-template #dialogcontentDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Aufgabe gelöscht</h4>
+  </div>
+  <div class="modal-body">
+    <p>Die Aufgabe wurde erfolgreich gelöscht.</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="close(modal)">Okay</button>
