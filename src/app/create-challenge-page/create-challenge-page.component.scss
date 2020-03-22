@@ -82,6 +82,8 @@
     }
     select:focus {
         outline: none;
+        border:2px solid #637454;
+        padding: 16px;
     }
 
     input[type=text] {
@@ -101,10 +103,14 @@
 
     textarea:focus {
         outline: none;
+        border:2px solid #637454;
+        padding: 16px;
     }
 
     input[type=text]:focus {
         outline: none;
+        border:2px solid #637454;
+        padding: 16px; /*BUG with padding on focus ???*/
     }
 
     select option {
@@ -119,6 +125,21 @@
 .submit-button {
     button {
         padding: 15px;
+    }
+}
+
+.mascot-container {
+    width: 90%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: grid;
+    svg {
+        max-width: 200px;
+        max-height: 200px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
