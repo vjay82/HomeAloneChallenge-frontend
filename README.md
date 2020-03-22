@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Getting started
 - clone repository
+- change into the newly created folder
 - run `npm install`
 - run `npm install -g @angular/cli`
 - run `ng serve -o`
