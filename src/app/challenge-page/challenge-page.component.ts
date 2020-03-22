@@ -20,6 +20,10 @@ export class ChallengePageComponent {
     private router: Router
   ) {
     this.challenge = store.getActiveChallenge();
+
+    if (this.challenge == null) {
+      this.router.navigate([`/main`]);
+    }
   }
 
   public cancel() {
