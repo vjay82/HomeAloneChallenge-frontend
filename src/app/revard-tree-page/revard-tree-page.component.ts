@@ -8,6 +8,9 @@ import { Location } from "@angular/common";
 })
 export class RevardTreePageComponent implements OnInit {
 
+  public revardCount: number = 4;
+  public challengeCounter: number = 10;
+
   constructor(public location: Location) { }
 
   ngOnInit(): void {
