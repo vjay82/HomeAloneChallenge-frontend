@@ -95,9 +95,7 @@ export class ApiService {
   getRandomChallenge(category: string): Promise<Challenge> {
     return this.getOrCreateUserId().then(userId => {
       return this.getChallengeFromUrl(
-        this.isDemo
-          ? `${this.getApiURL()}/users/${userId}/random_challenge`
-          : `${this.getApiURL()}/users/${userId}/random_challenge/`
+          `${this.getApiURL()}/random_challenge/`
       );
     });
   }
