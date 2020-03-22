@@ -6,7 +6,6 @@ import { Category } from "../../classes/category";
 })
 export class TranslateCategoryPipe implements PipeTransform {
   transform(value: string): string {
-    console.log("string:", Category.art);
     switch (value) {
       case Category.art:
         return "Kunst";

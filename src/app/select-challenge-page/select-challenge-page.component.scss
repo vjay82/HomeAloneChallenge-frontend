@@ -10,7 +10,7 @@ $color-green-dark: #637454;
     margin-left: auto;
 
   }
-  
+
 }
 
 .card-slider {
@@ -42,6 +42,7 @@ $color-green-dark: #637454;
   .card-text-container {
     font-size: 23px;
     align-self: start;
+    text-align: center;
   }
 
 }
@@ -49,12 +50,13 @@ $color-green-dark: #637454;
 .card-image-container {
   background-color: $color-green-dark;
   border-radius: 10px;
-  
+  width: 200px;
+  height: 153px;
   align-items: center;
   /* justify-items: center; */
   display: flex;
 
-  svg {
+  img {
     margin-left: auto;
     margin-right: auto;
     height: 90px;
@@ -112,44 +114,6 @@ $color-green-dark: #637454;
   }
 }
 
-.daily-challenge-container {
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  min-height: 100px;
-  background-color: #FFFFFF;
-  border-radius: 15px;
-  margin-top: 30px;
-  padding: 50px;
-  padding-bottom: 30px;
-  -webkit-box-shadow: 10px 10px 60px -44px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 60px -44px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 60px -44px rgba(0,0,0,0.75);
-
-  .daily-challenge-text {
-    font-size: 20px;
-    margin-top: 20px;
-  }
-
-  .category {
-    background-color: #d6ecf3;
-    color: #37c5b3;
-    padding: 5px;
-    border-radius: 7px;
-    margin-right: 10px;
-  }
-  .time {
-    font-style: italic;
-    color: gray
-  }
-
-  .daily-challenge-bottom {
-    margin-top: 60px;
-  }
-}
-
-
-
 
 /* define scrollbar */
 ::-webkit-scrollbar {
@@ -158,71 +122,17 @@ $color-green-dark: #637454;
 
 ::-webkit-scrollbar-track {
   background: #ded7c1;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
-
-.dailyChallenge {
-  background: #FFFFFF;
-  border: 2px solid #637454;
-  box-sizing: border-box;
-  overflow: auto;
-
-  /* card shadow */
-  box-shadow: 0 4px 26px rgba(0, 0, 0, 0.06);
-  border-radius: 6px;
-  padding: 10px 40px 30px 40px;
-
-  .icon {
-    display: block;
-    margin: 15px auto 0 auto;
-  }
-
-  .caption {
-    padding-top: 8px;
-    padding-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .title {
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-
-    letter-spacing: 0.2px;
-
-    color: #171D33;
-  }
-
-  .description {
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-
-    margin-top: 10px;
-    margin-bottom: 15px;
-
-    /* or 143% */
-    letter-spacing: 0.2px;
-
-    color: #979797;
-  }
-}
-
-
 
 .challenge {
   display: block;
@@ -265,7 +175,7 @@ $color-green-dark: #637454;
   }
 
   .challenge-category {
-    background: rgba(37,206,209, 0.1);
+    background: rgba(37, 206, 209, 0.1);
     border-radius: 4px;
     padding: 5px;
 
