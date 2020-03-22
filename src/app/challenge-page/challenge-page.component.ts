@@ -14,7 +14,7 @@ import { RouterModule, Router } from "@angular/router";
 export class ChallengePageComponent {
   challenge: Challenge;
   startTime: number;
-  timerOutput: String = "00 h : 00 min : 00 sec"; // emtry string
+  timerOutput: string;
   timerInterval;
 
   constructor(
@@ -36,18 +36,17 @@ export class ChallengePageComponent {
   ngOnInit() {
     // Set timer and count up
 
-    this.startTime = Math.ceil(new Date().getTime() / 1000);
-
     if (this.store.getActiveChallengeTimer() == null) {
+      this.startTime = new Date().getTime();
       this.store.setActiveChallengeTimer(this.startTime);
     } else {
       this.startTime = this.store.getActiveChallengeTimer();
     }
 
+    this.updateTime();
+
     this.timerInterval = setInterval(() => {
-      this.timerOutput = this.getTimeFromSeconds(
-        this.getDeltaSeconds(this.startTime)
-      );
+      this.updateTime();
     }, 1000);
   }
 
@@ -55,8 +54,19 @@ export class ChallengePageComponent {
     clearInterval(this.timerInterval);
   }
 
-  getDeltaSeconds(secs: number) {
-    return Math.ceil(new Date().getTime() / 1000) - secs;
+  updateTime() {
+    let sec = this.getDeltaSeconds();
+    if (sec >= 0) {
+      this.timerOutput = this.getTimeFromSeconds(sec);
+    } else {
+      this.handleCancel();
+    }
+  }
+
+  getDeltaSeconds() {
+    return (
+      24 * 60 * 60 - Math.ceil((new Date().getTime() - this.startTime) / 1000)
+    );
   }
 
   getTimeFromSeconds(seconds: number) {
@@ -68,10 +78,11 @@ export class ChallengePageComponent {
     var sMinutes = minutes < 10 ? "0" + minutes.toString() : minutes.toString();
     var sSeconds = seconds < 10 ? "0" + seconds.toString() : seconds.toString();
 
-    return sHours + " h : " + sMinutes + " min : " + sSeconds + " sec";
+    return sHours + " h : " + sMinutes + " m : " + sSeconds + " s";
   }
 
   public handleComplete() {
+    this.store.setActiveChallengeTimer(null);
     this.router.navigate([`/challenge/completed`]);
   }
 

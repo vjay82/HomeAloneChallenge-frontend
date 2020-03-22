@@ -99,7 +99,7 @@ export class Store {
     }
   }
 
-  getChallengeInEditor(): Challenge {
+  getChallengeInEditor(): Challenger {
     return this.challengeInEditor;
   }
 
