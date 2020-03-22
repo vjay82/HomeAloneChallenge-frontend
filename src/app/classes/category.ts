@@ -2,7 +2,7 @@ export enum Category {
   art = "art",
   eco = "eco",
   fun = "fun",
-  group = "group",
+  education = "education",
   household = "household",
   selfcare = "selfcare",
   social = "social",

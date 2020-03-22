@@ -8,21 +8,21 @@ export class TranslateCategoryPipe implements PipeTransform {
   transform(value: string): string {
     switch (value) {
       case Category.art:
-        return "Kunst";
+        return "Kreativität";
       case Category.eco:
-        return "Umwelt";
+        return "Nachhaltigkeit";
       case Category.fun:
-        return "Unterhaltung";
-      case Category.group:
-        return "Gesellschaft";
+        return "Spaß";
+      case Category.education:
+        return "Bildung";
       case Category.household:
         return "Haushalt";
       case Category.selfcare:
-        return "Mental";
+        return "Mentale Gesundheit";
       case Category.social:
-        return "Sozial";
+        return "Miteinander";
       case Category.sport:
-        return "Sport";
+        return "Bewegung";
       case Category.other:
         return "Andere";
       default:
