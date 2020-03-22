@@ -3,13 +3,6 @@
 
   <div class="headline">
 
-    <div class="headline-backbtn" (click)="this.location.back()">
-      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="black" />
-      </svg>
-    </div>
-
-
     <h1>{{ challenge.category | translateCategory }}</h1>
 
     <div class="placeholder"></div>
@@ -29,6 +22,6 @@
     <span class="challenge-time">{{ challenge.duration | parseDuration }}</span>
   </div>
 
-  <button type="button" class="btn mr-2 big-btn btn-green" (click)="completed()">Ja! Geschafft!</button>
-  <button type="button" class="btn mr-2 big-btn btn-red" (click)="cancel()">War nichts für mich</button>
+  <button type="button" class="btn mr-2 big-btn btn-green" (click)="handleComplete()">Ja! Geschafft!</button>
+  <button type="button" class="btn mr-2 big-btn btn-red" (click)="handleCancel()">War nichts für mich</button>
 </div>
