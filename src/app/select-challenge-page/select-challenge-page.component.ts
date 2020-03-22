@@ -12,7 +12,7 @@ export class SelectChallengePageComponent implements OnInit {
   public dailyChallenge$: Promise<Challenge>;
 
   constructor(private api: ApiService, public location: Location) {
-    this.dailyChallenge$ = this.api.getDailyChallenge();
+    //this.dailyChallenge$ = this.api.getDailyChallenge();
   }
 
   ngOnInit(): void {}
