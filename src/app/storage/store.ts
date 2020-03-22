@@ -12,7 +12,7 @@ export class Store {
   constructor(private persistenceService: PersistenceService) {
     this.userData = this.persistenceService.get("USER_DATA", StorageType.LOCAL);
     this.activeChallenge = this.persistenceService.get(
-      "CHALLENGE",
+      "ACTIVE_CHALLENGE",
       StorageType.LOCAL
     );
     this.demoMode = this.persistenceService.get("DEMO_MODE", StorageType.LOCAL);
@@ -36,10 +36,15 @@ export class Store {
     }
   }
 
-  setChallenge(challenge: Challenge) {
-    this.activeChallenge = challenge;
+  setChallenge(activeChallenge: Challenge) {
+    // TODO: remove me, bug in ng serve, wants this function
+    this.setActiveChallenge(activeChallenge);
+  }
+
+  setActiveChallenge(activeChallenge: Challenge) {
+    this.activeChallenge = activeChallenge;
     if (
-      !this.persistenceService.set("CHALLENGE", challenge, {
+      !this.persistenceService.set("ACTIVE_CHALLENGE", activeChallenge, {
         type: StorageType.LOCAL
       })
     ) {
