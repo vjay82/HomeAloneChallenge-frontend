@@ -40,6 +40,9 @@
 
         <span class="challenge-category">{{ dailyChallenge.category | translateCategory }}</span>
         <span class="challenge-time">{{ dailyChallenge.duration | parseDuration }}</span>
+        <button type="button" class="btn mr-2 btn-green big-btn" (click)="selectDailyChallenge()">
+          Los geht's!
+        </button>
       </div>
     </ng-container>
 
