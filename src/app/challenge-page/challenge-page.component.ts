@@ -13,6 +13,8 @@ import { RouterModule, Router } from "@angular/router";
 })
 export class ChallengePageComponent {
   challenge: Challenge;
+  timer: number;
+  timerOutput: String = "00 h : 00 min : 00 sec"; // emtry string
 
   constructor(
     public location: Location,
@@ -24,6 +26,35 @@ export class ChallengePageComponent {
     if (this.challenge == null) {
       this.router.navigate([`/main`]);
     }
+    if (this.challenge === null) {
+      // No active challenge --> back to mainpage
+      this.router.navigate([`/main`]);
+      
+    }
+
+    this.timer = 0;
+  }
+
+  ngOnInit() {
+    // Set timer and count up
+    setInterval(() => {
+      this.timer += 1;
+      this.timerOutput = this.getTimeFromSeconds(this.timer);
+   }, 1000);
+  }
+
+  getTimeFromSeconds(seconds: number) {
+    
+    var hours   = Math.floor(seconds / 3600);
+    var minutes = Math.floor((seconds - (hours * 3600)) / 60);
+    var seconds = seconds - (hours * 3600) - (minutes * 60);
+
+    var sHours = (hours < 10) ? "0"+hours.toString() : hours.toString();
+    var sMinutes = (minutes < 10) ? "0"+minutes.toString() : minutes.toString();
+    var sSeconds = (seconds < 10) ? "0"+seconds.toString() : seconds.toString();
+
+    return sHours+' h : '+sMinutes+' min : '+sSeconds + " sec";
+
   }
 
   public cancel() {
