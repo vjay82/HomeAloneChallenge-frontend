@@ -16,6 +16,11 @@
 
   <div class="content">
 
-
-
+    <ng-container *ngIf="challenges$ | async as challenges">
+      <div class="challenges">
+        <div class="challenges-item" *ngFor="let challenge of challenges">
+          {{challenge.title}}
+        </div>
+      </div>
+    </ng-container>
   </div>

@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Challenge } from "../classes/challenge";
+import { Router } from "@angular/router";
+import { ApiService } from "../api-service/api.service";
+import { Store } from "../storage/store";
 
 @Component({
-  selector: 'app-manage-challenges',
-  templateUrl: './manage-challenges-page.component.html',
-  styleUrls: ['./manage-challenges-page.component.scss']
+  selector: "app-manage-challenges",
+  templateUrl: "./manage-challenges-page.component.html",
+  styleUrls: ["./manage-challenges-page.component.scss"]
 })
 export class ManageChallengesPageComponent implements OnInit {
+  public challenges$: Promise<Challenge[]>;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private api: ApiService,
+    private store: Store
+  ) {
+    this.challenges$ = this.api.getAllChallengesOfUser();
   }
 
+  ngOnInit(): void {}
 }
