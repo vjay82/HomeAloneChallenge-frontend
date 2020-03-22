@@ -10,7 +10,7 @@ import { CreateChallengePageComponent } from "./create-challenge-page/create-cha
 import { ChallengeCanceledPageComponent } from "./challenge-canceled-page/challenge-canceled-page.component";
 import { SelectChallengePageComponent } from "./select-challenge-page/select-challenge-page.component";
 import { ManageChallengesPageComponent } from "./manage-challenges-page/manage-challenges-page.component";
-import { RevardTreePageComponent } from './revard-tree-page/revard-tree-page.component';
+import { RevardTreePageComponent } from "./revard-tree-page/revard-tree-page.component";
 
 const routes: Routes = [
   { path: "", component: GreetingPageComponent },
@@ -27,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
