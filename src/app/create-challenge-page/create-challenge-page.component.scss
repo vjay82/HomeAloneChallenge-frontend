@@ -70,4 +70,88 @@
     grid-template-rows: 1fr 1fr 2fr 1fr;
     column-gap: 20px;
     row-gap: 30px;
+
+    select {
+        word-wrap: normal;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: none;
+        color: #a9a9a9; /* TODO: style options */
+        
+    }
+    select:focus {
+        outline: none;
+    }
+
+    input[type=text] {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: none;
+    }
+
+    textarea {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        border: none;
+        resize: none;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    input[type=text]:focus {
+        outline: none;
+    }
+
+    select option {
+        /* TODO: styling !!! */
+        padding: 10px;
+    }
+
+    
+}
+
+
+.submit-button {
+    button {
+        padding: 15px;
+    }
+}
+
+
+
+textarea::-webkit-input-placeholder {
+    color: #a9a9a9;
+}  
+textarea:-moz-placeholder {
+    color: #a9a9a9;  
+}  
+textarea::-moz-placeholder {
+    color: #a9a9a9;  
+}
+textarea:-ms-input-placeholder {
+    color: #a9a9a9;  
+}  
+textarea::placeholder {
+    color: #a9a9a9;  
+}
+
+input[type=text]::-webkit-input-placeholder {
+    color: #a9a9a9;
+}  
+input[type=text]:-moz-placeholder {
+    color: #a9a9a9;  
+}  
+input[type=text]::-moz-placeholder {
+    color: #a9a9a9;  
+}
+input[type=text]:-ms-input-placeholder {
+    color: #a9a9a9;  
+}  
+input[type=text]::placeholder {
+    color: #a9a9a9;  
 }
