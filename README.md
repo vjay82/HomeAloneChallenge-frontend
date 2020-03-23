@@ -1,6 +1,7 @@
 # HomeAloneChallengeFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+Hi, this is the frontend of the Home-Alone-Challenge App.
+It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
 ## Getting started
 - clone repository
@@ -8,6 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - run `npm install`
 - run `npm install -g @angular/cli`
 - run `ng serve -o`
+- to switch into local development mode, add "?demo=true" to the URL of the browser and reload the page
 
 ## Development server
 
