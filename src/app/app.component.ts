@@ -11,7 +11,7 @@ import { Store } from "./storage/store";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = "HomeAloneChallengeFrontend";
+  title = "HomeAloneChallenge";
 
   constructor(private activatedRoute: ActivatedRoute, private store: Store) {
     let query = window.location.search;
