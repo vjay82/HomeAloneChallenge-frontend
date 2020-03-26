@@ -31,7 +31,7 @@ export class ApiService {
       console.log("Resetting caches.");
       this.cacheDay = day;
       this.cachedDailyChallenge = null;
-      this.cachedDailyChallenge = null;
+      this.cachedTipp = null;
     }
   }
 
