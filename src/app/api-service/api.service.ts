@@ -27,16 +27,14 @@ export class ApiService {
 
   getDailyTip(): Promise<Tipp> {
     return new Promise((resolve, reject) => {
-      this.httpClient
-        .get<Tipp>(`${this.getApiURL()}/random_dailytip`)
-        .subscribe(
-          (data: Tipp) => {
-            resolve(data);
-          },
-          error => {
-            reject("Error! " + error.message);
-          }
-        );
+      this.httpClient.get<Tipp>(`${this.getApiURL()}/daily_tip`).subscribe(
+        (data: Tipp) => {
+          resolve(data);
+        },
+        error => {
+          reject("Error! " + error.message);
+        }
+      );
     });
   }
 
