@@ -14,9 +14,25 @@ export class ApiService {
     "https://home-alone-challenge.herokuapp.com/api/v1";
   apiURLDemo: string = "assets/demo-backend/api/v1";
   isDemo: boolean = false;
+  cachedTipp: Tipp;
+  cachedDailyChallenge: Challenge;
+  cacheDay: number;
 
   constructor(private httpClient: HttpClient, private store: Store) {
     this.isDemo = store.isDemoMode();
+  }
+
+  private checkCache() {
+    let date = new Date();
+    let day = date.getDate();
+
+    // new values at 1:30h => reset at 2 o'clock
+    if (this.cacheDay != day && date.getHours() >= 2) {
+      console.log("Resetting caches.");
+      this.cacheDay = day;
+      this.cachedDailyChallenge = null;
+      this.cachedDailyChallenge = null;
+    }
   }
 
   getOrCreateUserId(): Promise<string> {
@@ -26,9 +42,15 @@ export class ApiService {
   }
 
   getDailyTip(): Promise<Tipp> {
+    this.checkCache();
     return new Promise((resolve, reject) => {
+      if (this.cachedTipp) {
+        resolve(this.cachedTipp);
+      }
+
       this.httpClient.get<Tipp>(`${this.getApiURL()}/daily_tip`).subscribe(
         (data: Tipp) => {
+          this.cachedTipp = data;
           resolve(data);
         },
         error => {
@@ -128,17 +150,25 @@ export class ApiService {
   }
 
   getDailyChallenge(): Promise<Challenge> {
-    return this.getOrCreateUserId().then(userId => {
-      return this.getChallengeFromUrl(`${this.getApiURL()}/daily_challenge`);
-    });
+    this.checkCache();
+    if (this.cachedDailyChallenge) {
+      return new Promise((resolve, reject) => {
+        resolve(this.cachedDailyChallenge);
+      });
+    }
+
+    return this.getChallengeFromUrl(`${this.getApiURL()}/daily_challenge`).then(
+      challenge => {
+        this.cachedDailyChallenge = challenge;
+        return challenge;
+      }
+    );
   }
 
   getRandomChallenge(category: string): Promise<Challenge> {
-    return this.getOrCreateUserId().then(userId => {
-      return this.getChallengeFromUrl(
-        `${this.getApiURL()}/random_challenge?category=${category}`
-      );
-    });
+    return this.getChallengeFromUrl(
+      `${this.getApiURL()}/random_challenge?category=${category}`
+    );
   }
 
   private getApiURL() {
