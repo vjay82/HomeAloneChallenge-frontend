@@ -11,8 +11,8 @@ import { UserData } from "../classes/user-data";
 })
 export class ApiService {
   apiURLProduction: string =
-    "https://home-alone-challenge.herokuapp.com/api/v1";
-  apiURLDemo: string = "assets/demo-backend/api/v1";
+    "https://homealonechallenge.duchdns.org/api/prototype";
+  apiURLDemo: string = "http://localhost:8080/api/prototype";
   isDemo: boolean = false;
   cachedTipp: Tipp;
   cachedDailyChallenge: Challenge;

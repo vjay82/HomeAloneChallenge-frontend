@@ -14,7 +14,7 @@
     <p class="challenge-description">{{ challenge.description }}</p>
 
     <span class="challenge-category">{{ challenge.category | translateCategory }}</span>
-    <span class="challenge-time">{{ challenge.duration | parseDuration }}</span>
+    <span class="challenge-time">{{ challenge.durationSeconds | parseDuration }}</span>
   </div>
 
   <button type="button" class="btn mr-2 big-btn btn-green" (click)="handleComplete()">Ja! Geschafft!</button>

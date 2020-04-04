@@ -36,7 +36,7 @@ export class CreateChallengePageComponent implements OnInit {
       this.category = this.editingChallenge.category;
       this.title = this.editingChallenge.title;
       this.description = this.editingChallenge.description;
-      this.duration = this.editingChallenge.duration;
+      this.duration = this.editingChallenge.durationSeconds;
     }
   }
 
@@ -48,7 +48,7 @@ export class CreateChallengePageComponent implements OnInit {
         title: this.title,
         description: this.description,
         category: this.category,
-        duration: this.duration
+        durationSeconds: this.duration
       })
       .then(value => {
         this.onClickDeleteChallenge(dialogcontent);
@@ -87,7 +87,7 @@ export class CreateChallengePageComponent implements OnInit {
           title: this.title,
           description: this.description,
           category: this.category,
-          duration: this.duration
+          durationSeconds: this.duration
         })
         .then(value => {
           this.modal.open(dialogcontent, {

@@ -4,5 +4,5 @@ export class Challenge {
     title: string;
     description: string;
     category: string;
-    duration: number;
+    durationSeconds: number;
 }
