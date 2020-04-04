@@ -11,7 +11,7 @@ import { UserData } from "../classes/user-data";
 })
 export class ApiService {
   apiURLProduction: string =
-    "https://homealonechallenge.duchdns.org/api/prototype";
+    "https://homealonechallenge.duckdns.org/api/prototype";
   apiURLDemo: string = "http://localhost:8080/api/prototype";
   isDemo: boolean = false;
   cachedTipp: Tipp;
