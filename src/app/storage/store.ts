@@ -12,7 +12,7 @@ export class Store {
   private demoMode: boolean = false;
 
   constructor(private persistenceService: PersistenceService) {
-    this.userData = this.persistenceService.get("USER_DATA2", StorageType.LOCAL);
+    this.userData = this.persistenceService.get("USER_DATA3", StorageType.LOCAL);
     this.activeChallenge = this.persistenceService.get(
       "ACTIVE_CHALLENGE",
       StorageType.LOCAL
@@ -114,7 +114,7 @@ export class Store {
   setUserData(userData: UserData) {
     this.userData = userData;
     if (
-      !this.persistenceService.set("USER_DATA2", userData, {
+      !this.persistenceService.set("USER_DATA3", userData, {
         type: StorageType.LOCAL
       })
     ) {
