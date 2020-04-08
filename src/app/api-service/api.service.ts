@@ -65,9 +65,7 @@ export class ApiService {
       return new Promise((resolve, reject) => {
         this.httpClient
           .get<Challenge[]>(
-            this.isDemo
-              ? `${this.getApiURL()}/users/${userId}/allChallenges.json`
-              : `${this.getApiURL()}/users/${userId}/challenges`
+            `${this.getApiURL()}/users/${userId}/challenges`
           )
           .subscribe(
             (data: Challenge[]) => {
@@ -176,54 +174,34 @@ export class ApiService {
   }
 
   private getOrCreateUserData(): Promise<UserData> {
-    if (this.isDemo) {
-      return new Promise((resolve, reject) => {
-        const userData = new UserData();
-        userData.userId = "demoUser";
-        resolve(userData);
-      });
-    } else {
-      return new Promise((resolve, reject) => {
-        if (this.store.getUserData() == undefined) {
-          // Do API request toget UID
-          this.createNewUser().then(
-            (newUserData: UserData) => {
-              resolve(newUserData);
-            },
-            error => {
-              reject("Canot access userId! " + error.message);
-            }
-          );
-        } else {
-          resolve(this.store.getUserData());
-        }
-      });
-    }
+    return new Promise((resolve, reject) => {
+      if (this.store.getUserData() == undefined) {
+        // Do API request toget UID
+        this.createNewUser().then(
+          (newUserData: UserData) => {
+            resolve(newUserData);
+          },
+          error => {
+            reject("Canot access userId! " + error.message);
+          }
+        );
+      } else {
+        resolve(this.store.getUserData());
+      }
+    });
   }
 
   private createNewUser() {
     return new Promise((resolve, reject) => {
-      if (this.isDemo) {
-        this.httpClient.get(`${this.getApiURL()}/users/create`).subscribe(
-          (newUserData: UserData) => {
-            this.store.setUserData(newUserData);
-            resolve(newUserData);
-          },
-          error => {
-            reject("Error! " + error.message);
-          }
-        );
-      } else {
-        this.httpClient.post(`${this.getApiURL()}/users`, "").subscribe(
-          (newUserData: UserData) => {
-            this.store.setUserData(newUserData);
-            resolve(newUserData);
-          },
-          error => {
-            reject("Error! " + error.message);
-          }
-        );
-      }
+      this.httpClient.post(`${this.getApiURL()}/users`, "").subscribe(
+        (newUserData: UserData) => {
+          this.store.setUserData(newUserData);
+          resolve(newUserData);
+        },
+        error => {
+          reject("Error! " + error.message);
+        }
+      );
     });
   }
 

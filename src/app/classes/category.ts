@@ -1,10 +1,12 @@
 export enum Category {
-  art = "art",
+  household = "household",
+  physical = "physical",
+  selfcare = "selfcare",
   eco = "eco",
   fun = "fun",
   education = "education",
-  household = "household",
-  selfcare = "selfcare",
   social = "social",
-  physical = "physical"
+  cooking = "cooking",
+  noComfortZone = "noComfortZone",
+  creative = "creative"
 }

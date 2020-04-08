@@ -7,14 +7,14 @@ import { Category } from "../../classes/category";
 export class TranslateCategoryPipe implements PipeTransform {
   transform(value: string): string {
     switch (value) {
-      case Category.art:
+      case Category.creative:
         return "Kreativität";
       case Category.eco:
         return "Nachhaltigkeit";
       case Category.fun:
         return "Spaß";
-      case Category.education:
-        return "Bildung";
+      case Category.cooking:
+        return "Kochen";
       case Category.household:
         return "Haushalt";
       case Category.selfcare:
@@ -23,8 +23,12 @@ export class TranslateCategoryPipe implements PipeTransform {
         return "Miteinander";
       case Category.physical:
         return "Bewegung";
+      case Category.education:
+        return "Bildung";
+      case Category.noComfortZone:
+        return "Raus aus der Komfortzone";
       default:
-        return "!FEHLER!";
+        return value;
     }
   }
 }
